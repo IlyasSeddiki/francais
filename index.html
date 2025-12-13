@@ -3,276 +3,530 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Révision BTS: Les Animaux et Nous</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Anima & Nous | Imaginer, Connaître, Comprendre</title>
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;600;800&display=swap');
-        body { font-family: 'Poppins', sans-serif; background-color: #f0fdf4; }
-        .card { transition: transform 0.3s ease; }
-        .card:hover { transform: translateY(-5px); }
-        .hidden-tab { display: none; }
-        .active-tab-btn { background-color: #166534; color: white; }
+        /* --- DESIGN SYSTEM APPLE STYLE --- */
+        :root {
+            --bg-color: #F5F5F7;
+            --card-bg: #FFFFFF;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --accent-blue: #0071E3;
+            --accent-green: #34C759;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --radius: 20px;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* --- LAYOUT UTILS --- */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* --- CARDS --- */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: #E8F2FF;
+            color: var(--accent-blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* --- INTERACTIVE ACCORDION (REFERENCES) --- */
+        details {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        details summary {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        details summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .details-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* --- TABLE --- */
+        .table-container {
+            overflow-x: auto;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 1.2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #fafafa;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* --- QUIZ --- */
+        .quiz-option {
+            display: block;
+            margin: 10px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .quiz-option:hover {
+            background: #f0f0f0;
+        }
+
+        .quiz-option.correct {
+            border-color: var(--accent-green);
+            background: #eaffea;
+            color: #006400;
+        }
+
+        .quiz-option.wrong {
+            border-color: #ff3b30;
+            background: #fff0f0;
+            color: #8b0000;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            margin-top: 4rem;
+        }
+
+        /* Responsive Nav */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for demo */
+        }
     </style>
 </head>
-<body class="text-gray-800">
-    <nav class="bg-green-800 p-4 sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-white">
-                Ani-Mots & Cie <span class="text-xs font-light">Kit de Survie BTS</span>
-            </h1>
-            <div class="space-x-2 hidden md:block">
-                <button onclick="showTab('chrono')" class="tab-btn px-4 py-2 rounded text-green-100 hover:bg-green-700 active-tab-btn"> La Frise</button>
-                <button onclick="showTab('arena')" class="tab-btn px-4 py-2 rounded text-green-100 hover:bg-green-700"> L'Arène des Idées</button>
-                <button onclick="showTab('art')" class="tab-btn px-4 py-2 rounded text-green-100 hover:bg-green-700"> Arts & Lettres</button>
-                <button onclick="showTab('method')" class="tab-btn px-4 py-2 rounded text-green-100 hover:bg-green-700"> La Méthode</button>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Anima & Nous</a>
+            <div class="nav-links">
+                <a href="#metho">Méthodologie</a>
+                <a href="#penseurs">Penseurs</a>
+                <a href="#refs">Références</a>
+                <a href="#bilan">Tableau Bilan</a>
+                <a href="#quiz">Quiz</a>
             </div>
-        </div>
-        <div class="md:hidden flex justify-around mt-2">
-            <button onclick="showTab('chrono')" class="text-white text-sm">Chrono</button>
-            <button onclick="showTab('arena')" class="text-white text-sm">Débats</button>
-            <button onclick="showTab('art')" class="text-white text-sm">Arts</button>
-            <button onclick="showTab('method')" class="text-white text-sm">Méthode</button>
         </div>
     </nav>
-    <div class="container mx-auto p-4 md:p-8 min-h-screen">
-        <div id="chrono" class="tab-content">
-            <h2 class="text-3xl font-bold text-green-900 mb-6 text-center">L'Évolution du regard sur l'Animal</h2>
-            <div class="relative border-l-4 border-green-600 ml-4 space-y-8">
-                <div class="mb-8 ml-6">
-                    <span class="absolute -left-3 bg-green-600 h-6 w-6 rounded-full"></span>
-                    <h3 class="font-bold text-xl">Origines & Bible</h3>
-                    <p class="mt-2 bg-white p-4 rounded shadow">
-                        <span class="font-bold">Genèse / Arche de Noé :</span> L'homme domine mais doit préserver les espèces. Il y a une hiérarchie mais une responsabilité de sauvegarde.<br>
-                        <span class="text-sm text-gray-500">Ex: Tableau de Lucas Cranach (Jardin d'Eden) ou Chagall.</span>
-                    </p>
-                </div>
-                <div class="mb-8 ml-6">
-                    <span class="absolute -left-3 bg-green-600 h-6 w-6 rounded-full"></span>
-                    <h3 class="font-bold text-xl">XVIIe: La Rupture Cartésienne</h3>
-                    <p class="mt-2 bg-white p-4 rounded shadow">
-                        <span class="font-bold">Descartes :</span> Théorie de l'<strong>"Animal-Machine"</strong>. L'animal n'a ni âme, ni raison, ni langage. C'est une horloge complexe.<br>
-                        <span class="text-sm text-gray-500">Opposants: La Fontaine (Fables), Gassendi (l'animal sent et pense).</span>
-                    </p>
-                </div>
-                <div class="mb-8 ml-6">
-                    <span class="absolute -left-3 bg-green-600 h-6 w-6 rounded-full"></span>
-                    <h3 class="font-bold text-xl">XVIIIe: Les Lumières</h3>
-                    <p class="mt-2 bg-white p-4 rounded shadow">
-                        <span class="font-bold">Rousseau :</span> L'animal est sensible. Différence avec l'homme = la <strong>liberté</strong> et la <strong>perfectibilité</strong> (l'homme évolue, pas l'animal).<br>
-                        <span class="font-bold">Voltaire :</span> Attaque Descartes. L'animal a des organes et des sentiments (douleur/peur). C'est un être sensible.
-                    </p>
-                </div>
-                <div class="mb-8 ml-6">
-                    <span class="absolute -left-3 bg-green-600 h-6 w-6 rounded-full"></span>
-                    <h3 class="font-bold text-xl">XIXe: Science & Révolution Industrielle</h3>
-                    <p class="mt-2 bg-white p-4 rounded shadow">
-                        <span class="font-bold">Darwin :</span> Théorie de l'évolution. Continuité biologique entre Homme et Animal.<br>
-                        <span class="font-bold">Zola / Hugo:</span> L'animal de labeur. Il souffre comme l'ouvrier. Miroir de la misère humaine.<br>
-                        <span class="font-bold">Loi Grammont (1850) :</span> Première loi de protection (mais pour éviter de choquer l'homme en public).
-                    </p>
-                </div>
-                <div class="mb-8 ml-6">
-                    <span class="absolute -left-3 bg-green-600 h-6 w-6 rounded-full"></span>
-                    <h3 class="font-bold text-xl">XXe - XXIe: Vers l'Égalité ?</h3>
-                    <p class="mt-2 bg-white p-4 rounded shadow">
-                        <span class="font-bold">Antispécisme:</span> Refus de la hiérarchie des espèces (Peter Singer). Le critère n'est plus "pensent-ils ?" mais "souffrent-ils ?".<br>
-                        <span class="font-bold">Droit :</span> 1976 (Animal = être sensible), 2015 (Animal n'est plus un bien meuble), Déclaration de Toulon (Personnalité juridique).<br>
-                        <span class="font-bold">Éthologie :</span> Étude du comportement (ex: Projet Nim, langage des signes).
-                    </p>
-                </div>
+
+    <header>
+        <h1>Imaginer, Connaître, Comprendre.</h1>
+        <p class="subtitle">Une ressource interactive pour maîtriser le thème de l'Animal en BTS.</p>
+    </header>
+
+    <section id="metho">
+        <h2>1. Méthodologie & Analyse</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="card-tag">Synthèse</span>
+                <h3>La Question de Corpus</h3>
+                <p>L'objectif est de confronter les documents. Vous devez repérer :</p>
+                <ul>
+                    <li>Le vocabulaire (animal vs humain, sauvage vs domestique).</li>
+                    <li>Les antonymes et oppositions.</li>
+                    <li>Les points communs et divergences entre les auteurs (ex: Descartes vs Voltaire).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <span class="card-tag">Écriture Personnelle</span>
+                <h3>L'Essai</h3>
+                <p>Vous devez répondre à une problématique en mobilisant votre culture.</p>
+                <ul>
+                    <li>Utilisez des exemples mémorisés précis (titres, auteurs).</li>
+                    <li>Ne paraphrasez pas le corpus, apportez vos propres connaissances.</li>
+                    <li>Structurez : Thèse, Argument, Exemple.</li>
+                </ul>
             </div>
         </div>
-        <div id="arena" class="tab-content hidden-tab">
-            <h2 class="text-3xl font-bold text-red-800 mb-6 text-center"> L'Arène des Philosophes</h2>
-            <p class="text-center text-gray-600 mb-8">Comprendre les oppositions et les points communs pour la synthèse.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden card border border-gray-200">
-                    <div class="bg-blue-100 p-4 font-bold text-lg text-blue-900 text-center">Le Statut de l'Animal</div>
-                    <div class="p-6">
-                        <div class="flex justify-between mb-4">
-                            <div class="w-1/2 pr-2 border-r border-gray-300">
-                                <h4 class="font-bold text-red-600">Descartes (XVIIe)</h4>
-                                <ul class="text-sm list-disc pl-4 mt-2">
-                                    <li>Animal = Machine / Horloge.</li>
-                                    <li>Agit par instinct, sans pensée.</li>
-                                    <li>Ne parle pas, émet juste des sons.</li>
-                                    <li>N'a pas d'âme.</li>
-                                </ul>
-                                <p class="text-xs text-gray-500 mt-2"></p>
-                            </div>
-                            <div class="w-1/2 pl-2">
-                                <h4 class="font-bold text-green-600">Voltaire / Rousseau (XVIIIe)</h4>
-                                <ul class="text-sm list-disc pl-4 mt-2">
-                                    <li>Animal = Être sensible.</li>
-                                    <li>Possède des organes comme nous.</li>
-                                    <li>Capable d'apprentissage et de perfectionnement (nuance chez Rousseau).</li>
-                                </ul>
-                                <p class="text-xs text-gray-500 mt-2"></p>
-                            </div>
-                        </div>
-                        <div class="bg-gray-100 p-2 rounded text-sm text-center font-semibold">
-                            Synthèse: Passage d'une vision mécanique à une vision biologique et sensible.
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden card border border-gray-200">
-                    <div class="bg-purple-100 p-4 font-bold text-lg text-purple-900 text-center">Souffrance & Travail</div>
-                    <div class="p-6">
-                        <div class="flex justify-between mb-4">
-                            <div class="w-1/2 pr-2 border-r border-gray-300">
-                                <h4 class="font-bold text-gray-700">Hugo & Zola</h4>
-                                <ul class="text-sm list-disc pl-4 mt-2">
-                                    <li>L'animal est une victime (comme le mineur).</li>
-                                    <li>Mise en scène pathétique (larmes, sang).</li>
-                                    <li>Dénonciation de la cruauté humaine.</li>
-                                </ul>
-                                <p class="text-xs text-gray-500 mt-2"></p>
-                            </div>
-                            <div class="w-1/2 pl-2">
-                                <h4 class="font-bold text-orange-600">Jacques Prévert</h4>
-                                <ul class="text-sm list-disc pl-4 mt-2">
-                                    <li>Donne la parole à l'animal.</li>
-                                    <li>L'animal se révolte ("Vive la liberté").</li>
-                                    <li>Dénonce l'absurdité de l'exploitation par l'humour/ironie.</li>
-                                </ul>
-                                <p class="text-xs text-gray-500 mt-2"></p>
-                            </div>
-                        </div>
-                        <div class="bg-gray-100 p-2 rounded text-sm text-center font-semibold">
-                            Synthèse: L'animal permet de critiquer la société humaine (conditions de travail, pouvoir).
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden card border border-gray-200 md:col-span-2">
-                    <div class="bg-yellow-100 p-4 font-bold text-lg text-yellow-900 text-center">Les Notions Clés à caser</div>
-                    <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-                        <div class="p-4 bg-gray-50 rounded">
-                            <h5 class="font-bold">L'Antispécisme</h5>
-                            <p class="text-sm">Refus de discriminer selon l'espèce. L'Homme n'est pas supérieur. Basé sur la capacité à souffrir (Peter Singer).</p>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded">
-                            <h5 class="font-bold">Le Continuum</h5>
-                            <p class="text-sm">Il n'y a pas de rupture nette entre Homme et Animal, mais des degrés (ADN partagé à 98% avec le chimpanzé).</p>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded">
-                            <h5 class="font-bold">La Personnification</h5>
-                            <p class="text-sm">Attribuer des traits humains aux animaux (parole, sentiments) pour toucher le lecteur (Fables, Disney, Prévert).</p>
-                        </div>
-                    </div>
-                </div>
+    </section>
+
+    <section id="penseurs">
+        <h2>2. Les Grands Penseurs</h2>
+        <p style="margin-bottom: 2rem; color: var(--text-secondary);">Les positions clés à maîtriser pour le débat.</p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>René Descartes</h3>
+                <p class="card-tag">L'Animal-Machine</p>
+                <p><strong>Thèse :</strong> L'animal est un assemblage de rouages, sans âme, ni raison, ni parole.
+                Il agit seulement par instinct et disposition de ses organes.</p>
+                <p><em>Contexte :</em> XVIIe siècle, vision mécaniste.</p>
+            </div>
+
+            <div class="card">
+                <h3>Voltaire</h3>
+                <p class="card-tag">La Sensibilité</p>
+                <p><strong>Thèse :</strong> Réfutation de Descartes. L'animal possède des organes semblables aux nôtres, donc il ressent la douleur.
+                Il possède une intelligence pratique.</p>
+                <p><em>Citation :</em> "Quelle barbarie de dire que les bêtes sont des machines..." (Dictionnaire Philo).</p>
+            </div>
+
+            <div class="card">
+                <h3>J.J. Rousseau</h3>
+                <p class="card-tag">Liberté vs Instinct</p>
+                <p><strong>Thèse :</strong> L'animal est une machine ingénieuse, mais il est guidé par l'instinct (il ne peut pas s'en écarter).
+                L'homme se distingue par sa liberté et sa perfectibilité (capacité à évoluer).</p>
+            </div>
+
+            <div class="card">
+                <h3>Bekoff & Ethologues</h3>
+                <p class="card-tag">Justice & Émotions</p>
+                <p><strong>Thèse :</strong> Il existe un "continuum" entre l'homme et l'animal.
+                Les animaux jouent, ont un sens de l'équité (justice sociale) et communiquent.</p>
             </div>
         </div>
-        <div id="art" class="tab-content hidden-tab">
-            <h2 class="text-3xl font-bold text-pink-800 mb-6 text-center"> L'Animal dans les Arts</h2>
-            <div class="space-y-6">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-pink-600 mb-3"> En Littérature</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-2"> </span>
-                            <div>
-                                <strong>La Réhabilitation du "Laid" :</strong> Victor Hugo (*L'Araignée et l'Ortie*) et Tristan Corbière (*Le Crapaud*).
-                                Le poète s'identifie à l'animal exclu, laid ou mal-aimé. C'est l'alchimie poétique (transformer la boue en or).
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-2"> </span>
-                            <div>
-                                <strong>Colette & la Nature :</strong> Elle humanise les animaux (dialogues) tout en respectant leur nature "sauvage".
-                                Elle observe pour comprendre, pas pour dominer.
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-2xl mr-2"></span>
-                            <div>
-                                <strong>La Satire Politique :</strong> *La Ferme des Animaux* (Orwell). Les animaux remplacent les hommes pour critiquer le totalitarisme (Stalinisme).
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-blue-600 mb-3"> En Peinture</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="border p-4 rounded bg-gray-50">
-                            <h4 class="font-bold">Rosa Bonheur (XIXe)</h4>
-                            <p class="text-sm mt-2">Peintre animalière réaliste et féministe. Elle peint les animaux "d'égal à égal" (Le Labourage Nivernais).
-                            Elle respecte leur anatomie et leur "âme".</p>
-                        </div>
-                        <div class="border p-4 rounded bg-gray-50">
-                            <h4 class="font-bold">L'Art Contemporain</h4>
-                            <p class="text-sm mt-2">Utilisation de matériaux de récup' (Raphaël De Just) pour dénoncer la pollution. Taxidermie (Wim Delvoye) pour questionner l'animal-objet.</p>
-                        </div>
-                    </div>
-                </div>
+    </section>
+
+    <section id="refs">
+        <h2>3. Support de Cours & Références</h2>
+        <p style="margin-bottom: 1rem;">Cliquez pour découvrir les œuvres du corpus.</p>
+
+        <details>
+            <summary>📚 Littérature & Poésie</summary>
+            <div class="details-content">
+                <ul>
+                    <li><strong>Jean de La Fontaine (Fables) :</strong> Utilise l'animal pour instruire les hommes ("Le Loup et le Chien").</li>
+                    <li><strong>Baudelaire (Fleurs du Mal) :</strong> "Le Chat" ou "L'Albatros". L'animal symbolise le poète incompris ou le mystère.</li>
+                    <li><strong>Victor Hugo (Melancholia) :</strong> Dénonce la cruauté envers les animaux de trait, qui partagent la misère des hommes.</li>
+                    <li><strong>Émile Zola (Germinal) :</strong> Le cheval Trompette dans la mine, symbole de la souffrance ouvrière partagée.</li>
+                    <li><strong>Jacques Prévert :</strong> Donne la parole aux animaux (ex: cheval) pour qu'ils revendiquent leur liberté.</li>
+                    <li><strong>George Orwell (La Ferme des animaux) :</strong> Satire politique, critique des dictatures via l'allégorie animale.</li>
+                    <li><strong>Colette :</strong> Dialogue avec les bêtes, respect de leur individualité ("Je ne serais devenue muette...").</li>
+                </ul>
             </div>
+        </details>
+
+        <details>
+            <summary>🏛 Philosophie & Société</summary>
+            <div class="details-content">
+                <ul>
+                    <li><strong>La Bible (Genèse - Arche de Noé) :</strong> Préservation des espèces, responsabilité de l'homme envers la création.</li>
+                    <li><strong>Code Civil & Pénal :</strong> Évolution du statut de l'animal.
+                    De "bien meuble" à "être vivant doué de sensibilité" (Loi 1976, 2015).</li>
+                    <li><strong>Déclaration de Toulon (2019) :</strong> Proclamation de la personnalité juridique de l'animal (non plus une chose).</li>
+                    <li><strong>L'Antispécisme (Peter Singer) :</strong> Refus de la hiérarchie entre les espèces basée uniquement sur l'appartenance à l'humanité.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>🎨 Arts & Cinéma</summary>
+            <div class="details-content">
+                <ul>
+                    <li><strong>Grotte de Lascaux :</strong> Premières représentations, fonction narrative ou magique.</li>
+                    <li><strong>Rosa Bonheur (Peinture) :</strong> Réalisme animalier ("Le Marché aux chevaux"). Elle peint l'âme de l'animal par son regard.</li>
+                    <li><strong>Cinéma (La Planète des Singes) :</strong> Renversement : l'homme devient l'animal de divertissement.</li>
+                    <li><strong>James Marsh (Le Projet Nim - Docu) :</strong> Expérience sur l'apprentissage du langage des signes par un chimpanzé, échec éthique.</li>
+                </ul>
+            </div>
+        </details>
+    </section>
+
+    <section id="bilan">
+        <h2>4. Tableau Bilan des Idées</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titre / Auteur</th>
+                        <th>Idée Défendue (Thèse)</th>
+                        <th>Liens / Oppositions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Descartes</strong><br>(Discours de la méthode)</td>
+                        <td><strong>Animal-Machine.</strong> Pas de pensée, pas de douleur consciente, pure mécanique.</td>
+                        <td>S'oppose à Voltaire, Rousseau, Bekoff.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Voltaire</strong><br>(Dictionnaire Philo)</td>
+                        <td><strong>Sensibilité.</strong> L'animal a des sens, il souffre, il ne doit pas être maltraité.</td>
+                        <td>Précurseur du droit animal moderne.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rousseau</strong><br>(Discours inégalité)</td>
+                        <td><strong>Perfectibilité.</strong> L'animal a l'instinct (parfait mais figé), l'homme a la liberté (évolue).</td>
+                        <td>Nuance la position de Descartes.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zola / Hugo</strong><br>(Germinal / Melancholia)</td>
+                        <td><strong>Compagnon de misère.</strong> L'animal de labeur est une victime du système, comme l'ouvrier.</td>
+                        <td>Lien social et affectif Homme-Animal.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bekoff / Marsh</strong><br>(Éthologie)</td>
+                        <td><strong>Continuum.</strong> Pas de rupture nette. Intelligence, jeu et émotions existent chez l'animal.</td>
+                        <td>Confirme scientifiquement Voltaire.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div id="method" class="tab-content hidden-tab">
-            <h2 class="text-3xl font-bold text-indigo-800 mb-6 text-center"> La Méthode BTS</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
-                    <h3 class="text-xl font-bold text-indigo-900 mb-4">1. La Question sur Corpus</h3>
-                    <div class="space-y-4 text-sm">
-                        <div class="bg-indigo-50 p-3 rounded">
-                            <strong>Objectif :</strong> Repérer les idées clés, les points communs et les différences entre les documents.
-                        </div>
-                        <ul class="list-decimal list-inside space-y-2">
-                            <li><strong>Analyse :</strong> Repère le vocabulaire de l'animal, les oppositions, les thèmes (souffrance, intelligence, travail).</li>
-                            <li><strong>Confrontation :</strong> Ne jamais analyser un texte seul ! Il faut croiser. <br><em>Ex: "Alors que Descartes voit l'animal comme une machine, Voltaire souligne sa sensibilité."</em></li>
-                            <li><strong>Le Plan type :</strong> <br>1. Points communs (ex: L'animal souffre). <br>II. Différences / Nuances (ex: L'un dénonce, l'autre explique).</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-purple-500">
-                    <h3 class="text-xl font-bold text-purple-900 mb-4">2. L'Essai / Écriture Personnelle</h3>
-                    <div class="space-y-4 text-sm">
-                        <div class="bg-purple-50 p-3 rounded">
-                            <strong> Objectif :</strong> Répondre à une problématique (ex: "Faut-il accorder des droits aux animaux ?") en utilisant ta culture et le corpus.
-                        </div>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li><strong>Introduction :</strong> Amorce (Actu/Histoire) + Problématique + Plan.</li>
-                            <li><strong>Développement :</strong> 2 ou 3 parties. Chaque paragraphe = 1 Argument + 1 Exemple précis (Livre, Film, Loi).</li>
-                            <li><strong>Exemples à utiliser :</strong>
-                                <ul class="pl-6 text-gray-600 italic">
-                                    <li>Loi 1976 / Code Civil 2015</li>
-                                    <li>Fables de La Fontaine / Animal Farm</li>
-                                    <li>Documentaire "Projet Nim" (Langage) </li>
-                                    <li>Antispécisme (Singer)</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    </section>
+
+    <section id="quiz">
+        <h2>5. Testez vos connaissances</h2>
+        <div class="card">
+            <h3 id="question-text">Question 1 : Selon Descartes, quelle est la caractéristique principale de l'animal ?</h3>
+            <div id="options-container">
+                <div class="quiz-option" onclick="checkAnswer(this, true)">A. C'est une machine dépourvue de raison.</div>
+                <div class="quiz-option" onclick="checkAnswer(this, false)">B. C'est un être sensible égal à l'homme.</div>
+                <div class="quiz-option" onclick="checkAnswer(this, false)">C. Il possède une âme immortelle.</div>
             </div>
-            <div class="mt-8 text-center">
-                <div class="inline-block bg-yellow-100 p-6 rounded-lg border-2 border-yellow-400">
-                    <h4 class="font-bold text-yellow-800 text-lg mb-2"> Le "Cheat Code" vocabulaire</h4>
-                    <p class="text-sm">
-                        <strong>Anthropomorphisme :</strong> Projeter des traits humains sur l'animal.<br>
-                        <strong>Antispécisme :</strong> Refus de la hiérarchie des espèces.<br>
-                        <strong>Éthologie :</strong> Science du comportement animal.<br>
-                        <strong>Animal-Machine :</strong> Théorie de Descartes (animal = objet).<br>
-                        <strong>Zoopharmacognosie :</strong> L'animal qui se soigne tout seul.
-                    </p>
-                </div>
-            </div>
+            <p id="feedback" style="margin-top: 1rem; font-weight: bold; min-height: 1.5rem;"></p>
         </div>
-    </div>
-    <footer class="bg-green-900 text-white text-center p-6 mt-12">
-        <p>Créé pour t'aider à réussir ton BTS - Thème "Imaginer, connaître, comprendre l'animal".</p>
-        <p class="text-xs text-gray-400 mt-2">Basé sur tes notes de cours (PDF). Bon courage !</p>
+    </section>
+
+    <footer>
+        <p>Créé avec l'assistance de Gemini • Basé sur le corpus "Imaginer, connaître, comprendre l'animal"</p>
     </footer>
+
     <script>
-        function showTab(tabld) {
-            // Masquer tous les contenus
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden-tab'));
-            // Retirer la classe active de tous les boutons
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab-btn'));
-            // Afficher le contenu demandé
-            document.getElementById(tabld).classList.remove('hidden-tab');
-            // Activer le bouton correspondant (recherche basée sur l'onclick)
-            const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => btn.getAttribute('onclick').includes(tabld));
-            if (activeBtn) activeBtn.classList.add('active-tab-btn');
+        // Simple Quiz Logic
+        const questions = [
+            {
+                q: "Selon Descartes, quelle est la caractéristique principale de l'animal ?",
+                options: ["C'est une machine dépourvue de raison", "C'est un être sensible", "Il a une culture"],
+                answer: 0,
+                cite: "Ref: Discours de la méthode"
+            },
+            {
+                q: "Quelle différence Rousseau fait-il entre l'homme et l'animal ?",
+                options: ["L'homme est plus fort", "L'homme a la liberté (perfectibilité), l'animal a l'instinct", "L'animal n'a pas de corps"],
+                answer: 1,
+                cite: "Ref: Discours sur l'origine de l'inégalité"
+            },
+            {
+                q: "Dans 'Germinal' de Zola, que représente le cheval Trompette ?",
+                options: ["Un animal sauvage dangereux", "Un compagnon de misère des mineurs", "Une divinité"],
+                answer: 1,
+                cite: "Ref: Germinal, Zola"
+            },
+            {
+                q: "Quel est le statut juridique actuel de l'animal dans le Code Civil (depuis 2015) ?",
+                options: ["Bien meuble", "Être vivant doué de sensibilité", "Personne humaine"],
+                answer: 1,
+                cite: "Ref: Code Civil / Loi 2015"
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            document.getElementById('question-text').innerText = `Question ${currentQuestion + 1} : ${q.q}`;
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            q.options.forEach((opt, index) => {
+                const div = document.createElement('div');
+                div.className = 'quiz-option';
+                div.innerText = opt;
+                div.onclick = () => checkAnswer(div, index === q.answer, q.cite);
+                container.appendChild(div);
+            });
+            document.getElementById('feedback').innerText = '';
         }
+
+        function checkAnswer(element, isCorrect, citation) {
+            // Disable clicks
+            const opts = document.querySelectorAll('.quiz-option');
+            opts.forEach(o => o.onclick = null);
+
+            if(isCorrect) {
+                element.classList.add('correct');
+                document.getElementById('feedback').style.color = 'green';
+                document.getElementById('feedback').innerText = "Correct ! " + citation;
+            } else {
+                element.classList.add('wrong');
+                document.getElementById('feedback').style.color = 'red';
+                document.getElementById('feedback').innerText = "Faux. Regardez bien les documents.";
+                // Highlight correct one
+                opts[questions[currentQuestion].answer].classList.add('correct');
+            }
+
+            // Next question delay
+            setTimeout(() => {
+                currentQuestion++;
+                if(currentQuestion < questions.length) {
+                    loadQuestion();
+                } else {
+                    document.getElementById('question-text').innerText = "Bravo ! Vous avez terminé le quiz.";
+                    document.getElementById('options-container').innerHTML = '';
+                    document.getElementById('feedback').innerText = "Révisez le tableau bilan pour parfaire vos connaissances.";
+                }
+            }, 2500);
+        }
+
+        // Initialize Quiz
+        loadQuestion();
+
+        // Smooth scroll for nav links (optional fix for older browsers)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
