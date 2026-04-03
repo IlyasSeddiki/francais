@@ -3,530 +3,2368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anima & Nous | Imaginer, Connaître, Comprendre</title>
+    <title>Anima — BTS Français 2026 | Les Animaux et Nous</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <style>
-        /* --- DESIGN SYSTEM APPLE STYLE --- */
-        :root {
-            --bg-color: #F5F5F7;
-            --card-bg: #FFFFFF;
-            --text-primary: #1D1D1F;
-            --text-secondary: #86868B;
-            --accent-blue: #0071E3;
-            --accent-green: #34C759;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-            --radius: 20px;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+/* ══════════════════════════════════════════
+   DESIGN SYSTEM
+   ══════════════════════════════════════════ */
+:root {
+    --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Crimson Text', Georgia, serif;
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    --bg: #F7F4ED;
+    --bg-alt: #EFEADF;
+    --surface: #FFFFFF;
+    --surface-hover: #FAFAF7;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.15);
 
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+    --ink-1: #1A1710;
+    --ink-2: #5C5549;
+    --ink-3: #938A7E;
+    --ink-4: #B8B0A4;
 
-        /* --- NAVIGATION --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
+    --green-900: #0D2818;
+    --green-700: #1B5E3B;
+    --green-600: #237A4C;
+    --green-500: #2D9B60;
+    --green-200: #A3DFBA;
+    --green-100: #DBF2E3;
+    --green-50: #F0FAF3;
 
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    --amber-900: #3C1D06;
+    --amber-700: #8B5A1B;
+    --amber-600: #A86D21;
+    --amber-500: #C4882A;
+    --amber-200: #F0CC7A;
+    --amber-100: #FBF0D0;
+    --amber-50: #FEFAF0;
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
+    --red-500: #DC3545;
+    --red-100: #FFE8EA;
+    --blue-500: #2563EB;
+    --blue-100: #DBEAFE;
 
-        .nav-links a {
-            margin-left: 2rem;
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
+    --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-s: 0 1px 4px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+    --shadow-m: 0 4px 12px rgba(0,0,0,0.07), 0 12px 28px rgba(0,0,0,0.05);
+    --shadow-l: 0 8px 24px rgba(0,0,0,0.1), 0 20px 48px rgba(0,0,0,0.07);
 
-        .nav-links a:hover {
-            color: var(--accent-blue);
-        }
+    --r-xs: 6px;
+    --r-s: 10px;
+    --r-m: 14px;
+    --r-l: 20px;
+    --r-xl: 28px;
 
-        /* --- HERO SECTION --- */
-        header {
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
+/* ═══ RESET ═══ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-ui);
+    background: var(--bg);
+    color: var(--ink-1);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+img { max-width: 100%; display: block; }
+blockquote {
+    border-left: 3px solid var(--ink-4);
+    padding: 0.75rem 1.25rem;
+    margin: 1rem 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-2);
+    background: var(--bg);
+    border-radius: 0 var(--r-xs) var(--r-xs) 0;
+}
 
-        .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-        }
+/* ═══ UTILITIES ═══ */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.fade-in { animation: fadeIn 0.5s var(--ease) both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes fadeInFast { from { opacity: 0; } to { opacity: 1; } }
 
-        /* --- LAYOUT UTILS --- */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+/* ══════════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════════ */
+.main-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247, 244, 237, 0.85);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s var(--ease);
+}
+.main-nav.scrolled { box-shadow: var(--shadow-s); }
+.nav-inner {
+    max-width: 1140px; margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+}
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.35rem; font-weight: 600;
+    color: var(--ink-1); letter-spacing: -0.01em;
+}
+.nav-logo span { color: var(--green-600); }
+.nav-center { display: flex; gap: 0.25rem; }
+.nav-pill {
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    font-size: 0.82rem; font-weight: 600;
+    color: var(--ink-3);
+    transition: all 0.25s var(--ease);
+    position: relative;
+}
+.nav-pill:hover { color: var(--ink-1); background: rgba(0,0,0,0.04); }
+.nav-pill.active-green { color: var(--green-700); background: var(--green-100); }
+.nav-pill.active-amber { color: var(--amber-700); background: var(--amber-100); }
+.nav-home {
+    padding: 0.4rem 0.85rem; border-radius: 999px;
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--ink-2);
+    transition: all 0.25s var(--ease);
+}
+.nav-home:hover { background: rgba(0,0,0,0.04); }
 
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
+/* Mobile nav */
+.nav-burger { display: none; flex-direction: column; gap: 4px; padding: 0.5rem; cursor: pointer; }
+.nav-burger span { display: block; width: 20px; height: 2px; background: var(--ink-1); border-radius: 2px; transition: 0.3s; }
+.mobile-menu {
+    display: none; position: fixed; top: 60px; left: 0; right: 0; bottom: 0;
+    background: rgba(247,244,237,0.98); backdrop-filter: blur(20px);
+    padding: 2rem; z-index: 99;
+    flex-direction: column; gap: 0.75rem;
+}
+.mobile-menu.open { display: flex; animation: fadeInFast 0.2s ease; }
+.mobile-menu button {
+    padding: 1rem 1.5rem; border-radius: var(--r-m);
+    font-size: 1rem; font-weight: 600; text-align: left;
+    background: var(--surface); border: 1px solid var(--border);
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+/* ══════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════ */
+.hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(45,155,96,0.06), transparent),
+                radial-gradient(ellipse 50% 40% at 70% 70%, rgba(196,136,42,0.05), transparent);
+    pointer-events: none;
+}
+.hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.4rem 1rem; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--border);
+    font-size: 0.78rem; font-weight: 600; color: var(--ink-2);
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-xs);
+}
+.hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-500); }
+.hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.2rem);
+    font-weight: 600; line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 700px;
+    margin-bottom: 1.25rem;
+}
+.hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--green-600), var(--amber-600));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero-sub {
+    font-size: 1.15rem; color: var(--ink-2);
+    max-width: 520px; margin-bottom: 3rem;
+    line-height: 1.7;
+}
+.hero-cards {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; max-width: 700px; width: 100%;
+}
+.hero-card {
+    position: relative;
+    padding: 2rem 1.75rem;
+    border-radius: var(--r-l);
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+.hero-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-l); }
+.hero-card.green {
+    background: linear-gradient(135deg, var(--green-700), var(--green-900));
+    color: #fff;
+}
+.hero-card.amber {
+    background: linear-gradient(135deg, var(--amber-700), var(--amber-900));
+    color: #fff;
+}
+.hero-card-num {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 0.75rem;
+}
+.hero-card h2 {
+    font-family: var(--font-display);
+    font-size: 1.45rem; font-weight: 600;
+    margin-bottom: 0.5rem; line-height: 1.25;
+}
+.hero-card p { font-size: 0.85rem; opacity: 0.8; line-height: 1.5; }
+.hero-card .arrow {
+    position: absolute; bottom: 1.5rem; right: 1.5rem;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+.hero-card:hover .arrow { background: rgba(255,255,255,0.25); }
 
-        /* --- CARDS --- */
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
+/* ══════════════════════════════════════════
+   SECTION LAYOUT
+   ══════════════════════════════════════════ */
+.main-section { display: none; padding-top: 80px; min-height: 100vh; }
+.main-section.active { display: block; animation: fadeIn 0.4s var(--ease); }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
+.section-header {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+}
+.section-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 600; margin-bottom: 0.5rem;
+}
+.section-header p { color: var(--ink-2); font-size: 1.05rem; max-width: 540px; margin: 0 auto; }
+.section-header.green h1 { color: var(--green-700); }
+.section-header.amber h1 { color: var(--amber-700); }
 
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
+/* Tabs */
+.tab-bar {
+    display: flex; justify-content: center; gap: 0.35rem;
+    padding: 0 1.5rem; margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+.tab-btn {
+    padding: 0.55rem 1.25rem;
+    border-radius: 999px;
+    font-size: 0.84rem; font-weight: 600;
+    color: var(--ink-3);
+    transition: all 0.25s var(--ease);
+    border: 1px solid transparent;
+}
+.tab-btn:hover { color: var(--ink-1); background: rgba(0,0,0,0.03); }
+.tab-btn.active-green { color: var(--green-700); background: var(--green-50); border-color: var(--green-200); }
+.tab-btn.active-amber { color: var(--amber-700); background: var(--amber-50); border-color: var(--amber-200); }
 
-        .card-tag {
-            display: inline-block;
-            background: #E8F2FF;
-            color: var(--accent-blue);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn 0.35s var(--ease); }
 
-        /* --- INTERACTIVE ACCORDION (REFERENCES) --- */
-        details {
-            background: var(--card-bg);
-            margin-bottom: 1rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            overflow: hidden;
-        }
+/* ══════════════════════════════════════════
+   CARDS & COMPONENTS
+   ══════════════════════════════════════════ */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-l);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-xs);
+    transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.card:hover { box-shadow: var(--shadow-s); }
 
-        details summary {
-            padding: 1.5rem;
-            cursor: pointer;
-            font-weight: 600;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* Step cards */
+.steps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+.step-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--r-m); padding: 1.5rem;
+    position: relative; overflow: hidden;
+    transition: box-shadow 0.3s var(--ease);
+}
+.step-card:hover { box-shadow: var(--shadow-s); }
+.step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 50%;
+    font-size: 0.8rem; font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+.step-num.green { background: var(--green-100); color: var(--green-700); }
+.step-num.amber { background: var(--amber-100); color: var(--amber-700); }
+.step-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+.step-card p { color: var(--ink-2); font-size: 0.9rem; }
+.step-card ul { margin-top: 0.5rem; padding-left: 1rem; list-style: disc; }
+.step-card ul li { color: var(--ink-2); font-size: 0.88rem; margin-bottom: 0.25rem; }
 
-        details summary::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            transition: transform 0.2s;
-        }
+/* Tip boxes */
+.tip-box {
+    border-radius: var(--r-m); padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0; font-size: 0.92rem;
+    display: flex; gap: 0.75rem; align-items: flex-start;
+}
+.tip-box.green { background: var(--green-50); border: 1px solid var(--green-200); color: var(--green-900); }
+.tip-box.amber { background: var(--amber-50); border: 1px solid var(--amber-200); color: var(--amber-900); }
+.tip-box.red { background: var(--red-100); border: 1px solid #f5c6cb; color: #721c24; }
+.tip-box.blue { background: var(--blue-100); border: 1px solid #b6d4fe; color: #1e40af; }
+.tip-icon { font-size: 1.15rem; flex-shrink: 0; margin-top: 1px; }
+.tip-box strong { font-weight: 600; }
 
-        details[open] summary::after {
-            transform: rotate(45deg);
-        }
+/* Reference cards */
+.ref-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; justify-content: center; }
+.filter-chip {
+    padding: 0.4rem 0.95rem; border-radius: 999px;
+    font-size: 0.78rem; font-weight: 600;
+    border: 1px solid var(--border-strong);
+    color: var(--ink-2);
+    transition: all 0.2s var(--ease);
+}
+.filter-chip:hover, .filter-chip.active { background: var(--green-100); border-color: var(--green-200); color: var(--green-700); }
+.ref-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
 
-        .details-content {
-            padding: 0 1.5rem 1.5rem;
-            color: var(--text-secondary);
-            border-top: 1px solid #f0f0f0;
-        }
+.ref-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--r-l); overflow: hidden;
+    box-shadow: var(--shadow-xs);
+    transition: box-shadow 0.3s var(--ease);
+}
+.ref-card:hover { box-shadow: var(--shadow-s); }
+.ref-card-head {
+    padding: 1.5rem 1.75rem 1rem;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 0.75rem;
+}
+.ref-card-head h3 { font-size: 1.15rem; font-weight: 700; }
+.ref-card-head .subtitle { font-size: 0.88rem; color: var(--ink-3); margin-top: 0.15rem; }
+.cat-badge {
+    padding: 0.25rem 0.75rem; border-radius: 999px;
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em;
+}
+.cat-badge.litt { background: #EDE9FE; color: #5B21B6; }
+.cat-badge.philo { background: #DBEAFE; color: #1E40AF; }
+.cat-badge.essai { background: #FEF3C7; color: #92400E; }
+.cat-badge.science { background: #D1FAE5; color: #065F46; }
+.cat-badge.art { background: #FCE7F3; color: #9D174D; }
+.power-badge {
+    padding: 0.25rem 0.7rem; border-radius: 999px;
+    font-size: 0.68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.03em;
+}
+.power-badge.fort { background: var(--green-100); color: var(--green-700); }
+.power-badge.classique { background: var(--amber-100); color: var(--amber-700); }
+.power-badge.original { background: #EDE9FE; color: #5B21B6; }
 
-        /* --- TABLE --- */
-        .table-container {
-            overflow-x: auto;
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-        }
+.ref-thesis {
+    padding: 0 1.75rem 1rem;
+    font-size: 0.92rem; color: var(--ink-2); line-height: 1.6;
+}
+.ref-thesis strong { color: var(--ink-1); }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 600px;
-        }
+.ref-toggle {
+    width: 100%;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.82rem; font-weight: 600;
+    color: var(--green-700);
+    background: var(--green-50);
+    border-top: 1px solid var(--green-100);
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background 0.2s;
+}
+.ref-toggle:hover { background: var(--green-100); }
+.ref-toggle .chevron { transition: transform 0.3s var(--ease); }
+.ref-toggle.open .chevron { transform: rotate(180deg); }
 
-        th, td {
-            text-align: left;
-            padding: 1.2rem;
-            border-bottom: 1px solid #eee;
-        }
+.ref-detail {
+    display: none; padding: 1.25rem 1.75rem 1.5rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface-hover);
+}
+.ref-detail.open { display: block; animation: fadeIn 0.3s var(--ease); }
+.ref-detail h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 0.4rem; margin-top: 1rem; }
+.ref-detail h4:first-child { margin-top: 0; }
+.ref-detail ul { padding-left: 1.1rem; list-style: disc; }
+.ref-detail ul li { font-size: 0.88rem; color: var(--ink-2); margin-bottom: 0.25rem; }
+.ref-detail .use-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem; }
+.ref-use-good, .ref-use-bad {
+    padding: 1rem; border-radius: var(--r-s); font-size: 0.85rem;
+}
+.ref-use-good { background: var(--green-50); border: 1px solid var(--green-200); }
+.ref-use-bad { background: var(--red-100); border: 1px solid #f5c6cb; }
+.ref-use-good h5, .ref-use-bad h5 { font-size: 0.8rem; font-weight: 700; margin-bottom: 0.35rem; }
+.ref-use-good h5 { color: var(--green-700); }
+.ref-use-bad h5 { color: var(--red-500); }
+.ref-use-good li, .ref-use-bad li { font-size: 0.83rem; }
+.ref-links { padding: 0 1.75rem 1.25rem; font-size: 0.82rem; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.ref-links a { color: var(--green-600); font-weight: 600; cursor: pointer; }
+.ref-links a:hover { text-decoration: underline; }
 
-        th {
-            background: #fafafa;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
+/* Accordion */
+.accordion { margin-bottom: 1.5rem; }
+.accordion-item {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--r-m); margin-bottom: 0.6rem;
+    overflow: hidden;
+}
+.accordion-trigger {
+    width: 100%; padding: 1.15rem 1.5rem;
+    font-size: 0.95rem; font-weight: 600; text-align: left;
+    color: var(--ink-1);
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background 0.2s;
+}
+.accordion-trigger:hover { background: var(--surface-hover); }
+.accordion-trigger .chevron { font-size: 0.75rem; color: var(--ink-3); transition: transform 0.3s var(--ease); }
+.accordion-trigger.open .chevron { transform: rotate(180deg); }
+.accordion-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s var(--ease);
+}
+.accordion-body-inner {
+    padding: 0 1.5rem 1.25rem;
+    color: var(--ink-2); font-size: 0.9rem; line-height: 1.7;
+}
+.accordion-body-inner p { margin-bottom: 0.6rem; }
+.accordion-body-inner ul { padding-left: 1.1rem; list-style: disc; }
+.accordion-body-inner ul li { margin-bottom: 0.3rem; }
+.accordion-body-inner strong { color: var(--ink-1); }
+.accordion-body-inner .model-text {
+    background: var(--bg); border-left: 3px solid var(--green-500);
+    padding: 1rem 1.25rem; border-radius: 0 var(--r-xs) var(--r-xs) 0;
+    margin: 0.75rem 0; font-family: var(--font-display); font-size: 1rem;
+    line-height: 1.8; color: var(--ink-1);
+}
+.accordion-body-inner .bad-text {
+    background: #FFF5F5; border-left: 3px solid var(--red-500);
+    padding: 1rem 1.25rem; border-radius: 0 var(--r-xs) var(--r-xs) 0;
+    margin: 0.75rem 0; font-size: 0.9rem; color: #6B2020;
+}
+.accordion-body-inner .correction {
+    background: var(--green-50); border-left: 3px solid var(--green-500);
+    padding: 1rem 1.25rem; border-radius: 0 var(--r-xs) var(--r-xs) 0;
+    margin: 0.75rem 0; font-size: 0.9rem; color: var(--green-900);
+}
 
-        /* --- QUIZ --- */
-        .quiz-option {
-            display: block;
-            margin: 10px 0;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.2s;
-        }
+/* Quiz */
+.quiz-container { max-width: 680px; margin: 0 auto; }
+.quiz-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--r-l); padding: 2rem; box-shadow: var(--shadow-s);
+}
+.quiz-progress { display: flex; gap: 0.35rem; margin-bottom: 1.5rem; }
+.quiz-dot {
+    height: 4px; flex: 1; border-radius: 999px; background: var(--bg-alt);
+    transition: background 0.3s;
+}
+.quiz-dot.done { background: var(--green-500); }
+.quiz-dot.current { background: var(--green-200); }
+.quiz-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.25rem; line-height: 1.5; }
+.quiz-option {
+    display: block; width: 100%;
+    padding: 0.9rem 1.15rem; margin-bottom: 0.5rem;
+    border-radius: var(--r-s);
+    font-size: 0.9rem; font-weight: 500; text-align: left;
+    border: 1.5px solid var(--border-strong);
+    background: var(--surface);
+    transition: all 0.2s var(--ease);
+}
+.quiz-option:hover:not(:disabled) { background: var(--surface-hover); border-color: var(--ink-4); }
+.quiz-option.correct { border-color: var(--green-500); background: var(--green-50); color: var(--green-900); }
+.quiz-option.wrong { border-color: var(--red-500); background: var(--red-100); color: #6B2020; }
+.quiz-option:disabled { cursor: default; }
+.quiz-explain {
+    margin-top: 1rem; padding: 1rem 1.25rem;
+    border-radius: var(--r-s); font-size: 0.88rem;
+    line-height: 1.6; display: none;
+}
+.quiz-explain.show { display: block; animation: fadeIn 0.3s var(--ease); }
+.quiz-explain.correct-bg { background: var(--green-50); border: 1px solid var(--green-200); color: var(--green-900); }
+.quiz-explain.wrong-bg { background: var(--red-100); border: 1px solid #f5c6cb; color: #6B2020; }
+.quiz-next {
+    margin-top: 1.25rem; padding: 0.7rem 1.5rem;
+    border-radius: 999px; font-size: 0.85rem; font-weight: 600;
+    color: #fff; background: var(--green-600);
+    transition: background 0.2s;
+    display: none;
+}
+.quiz-next:hover { background: var(--green-700); }
+.quiz-next.show { display: inline-block; }
+.quiz-score {
+    text-align: center; padding: 2rem;
+}
+.quiz-score h3 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 0.5rem; }
+.quiz-score .big-num { font-size: 3rem; font-weight: 800; color: var(--green-600); }
 
-        .quiz-option:hover {
-            background: #f0f0f0;
-        }
+/* Flashcard */
+.flashcard-container { max-width: 520px; margin: 0 auto; perspective: 1000px; }
+.flashcard {
+    width: 100%; min-height: 280px;
+    position: relative; cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s var(--ease);
+}
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-face {
+    position: absolute; inset: 0;
+    backface-visibility: hidden;
+    border-radius: var(--r-l); padding: 2.5rem 2rem;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+}
+.flashcard-front {
+    background: linear-gradient(135deg, var(--green-700), var(--green-900));
+    color: #fff; border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: var(--shadow-m);
+}
+.flashcard-front h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.4rem; }
+.flashcard-front p { font-size: 0.9rem; opacity: 0.75; }
+.flashcard-back {
+    background: var(--surface); border: 1px solid var(--border);
+    box-shadow: var(--shadow-m);
+    transform: rotateY(180deg);
+    color: var(--ink-1);
+}
+.flashcard-back p { font-size: 0.95rem; line-height: 1.7; color: var(--ink-2); }
+.flashcard-back strong { color: var(--ink-1); }
+.flashcard-counter { text-align: center; margin-top: 1rem; font-size: 0.82rem; color: var(--ink-3); }
+.flashcard-nav { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1rem; }
+.flashcard-btn {
+    padding: 0.55rem 1.25rem; border-radius: 999px;
+    font-size: 0.82rem; font-weight: 600;
+    border: 1px solid var(--border-strong);
+    color: var(--ink-2);
+    transition: all 0.2s;
+}
+.flashcard-btn:hover { background: var(--surface-hover); border-color: var(--ink-4); }
+.flashcard-hint { text-align: center; margin-top: 0.75rem; font-size: 0.78rem; color: var(--ink-4); }
 
-        .quiz-option.correct {
-            border-color: var(--accent-green);
-            background: #eaffea;
-            color: #006400;
-        }
+/* Random subject */
+.random-subject-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--r-l); padding: 2rem; text-align: center;
+    box-shadow: var(--shadow-s); max-width: 620px; margin: 0 auto;
+}
+.random-subject-box h3 { font-size: 0.9rem; font-weight: 700; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
+.random-subject-text {
+    font-family: var(--font-display);
+    font-size: 1.35rem; font-weight: 600; color: var(--ink-1);
+    line-height: 1.5; margin-bottom: 1.5rem; min-height: 3.5em;
+}
+.random-btn {
+    padding: 0.65rem 1.5rem; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 600;
+    color: #fff; background: var(--green-600);
+    transition: background 0.2s;
+}
+.random-btn:hover { background: var(--green-700); }
 
-        .quiz-option.wrong {
-            border-color: #ff3b30;
-            background: #fff0f0;
-            color: #8b0000;
-        }
+/* Procédé cards */
+.procede-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.procede-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--r-m); padding: 1.25rem 1.5rem;
+    transition: box-shadow 0.3s;
+}
+.procede-card:hover { box-shadow: var(--shadow-s); }
+.procede-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--amber-700); margin-bottom: 0.25rem; }
+.procede-card .def { font-size: 0.87rem; color: var(--ink-2); margin-bottom: 0.5rem; }
+.procede-card .example {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 0.95rem; color: var(--ink-1);
+    padding: 0.6rem 0.85rem;
+    background: var(--amber-50); border-radius: var(--r-xs);
+    border-left: 2px solid var(--amber-500);
+}
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            margin-top: 4rem;
-        }
+/* Do / Don't */
+.do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+.do-col, .dont-col {
+    padding: 1.25rem 1.5rem; border-radius: var(--r-m); font-size: 0.88rem;
+}
+.do-col { background: var(--green-50); border: 1px solid var(--green-200); }
+.dont-col { background: var(--red-100); border: 1px solid #f5c6cb; }
+.do-col h4 { color: var(--green-700); font-size: 0.85rem; margin-bottom: 0.5rem; }
+.dont-col h4 { color: var(--red-500); font-size: 0.85rem; margin-bottom: 0.5rem; }
+.do-col ul, .dont-col ul { padding-left: 1rem; list-style: disc; }
+.do-col li, .dont-col li { margin-bottom: 0.25rem; }
 
-        /* Responsive Nav */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Simplified for demo */
-        }
+/* Section title */
+.section-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem; font-weight: 600;
+    margin-bottom: 1rem; margin-top: 2.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+}
+.section-title:first-child { margin-top: 0; }
+
+/* Connectors box */
+.connectors-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--r-m); padding: 1.5rem;
+    margin: 1rem 0;
+}
+.connectors-box h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; }
+.conn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
+.conn-item { font-size: 0.85rem; padding: 0.5rem 0.75rem; background: var(--bg); border-radius: var(--r-xs); }
+.conn-item strong { color: var(--green-700); }
+
+/* Footer */
+.site-footer {
+    text-align: center; padding: 2.5rem 1.5rem;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem; font-size: 0.82rem; color: var(--ink-3);
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+    .nav-center { display: none; }
+    .nav-burger { display: flex; }
+    .hero-cards { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .ref-detail .use-grid { grid-template-columns: 1fr; }
+    .do-dont { grid-template-columns: 1fr; }
+    .procede-grid { grid-template-columns: 1fr; }
+    .tab-bar { gap: 0.25rem; }
+    .tab-btn { padding: 0.45rem 0.85rem; font-size: 0.78rem; }
+    .section-header h1 { font-size: 1.8rem; }
+    .flashcard-face { padding: 1.5rem 1.25rem; }
+}
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">Anima & Nous</a>
-            <div class="nav-links">
-                <a href="#metho">Méthodologie</a>
-                <a href="#penseurs">Penseurs</a>
-                <a href="#refs">Références</a>
-                <a href="#bilan">Tableau Bilan</a>
-                <a href="#quiz">Quiz</a>
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+     ══════════════════════════════════════════ -->
+<nav class="main-nav" id="mainNav">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo" onclick="showHero()">Anima<span>&</span>Nous</a>
+        <div class="nav-center">
+            <button class="nav-home" onclick="showHero()">Accueil</button>
+            <button class="nav-pill" id="navExpr" onclick="showSection('expression')">Expression Ecrite</button>
+            <button class="nav-pill" id="navComm" onclick="showSection('commentaire')">Commentaire de Texte</button>
+        </div>
+        <div class="nav-burger" onclick="toggleMobile()">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <button onclick="showHero(); closeMobile()">Accueil</button>
+    <button onclick="showSection('expression'); closeMobile()">Expression Ecrite</button>
+    <button onclick="showSection('commentaire'); closeMobile()">Commentaire de Texte</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════ -->
+<section class="hero" id="hero">
+    <div class="hero-badge"><span class="dot"></span> BTS 2026 — Culture Generale et Expression</div>
+    <h1>Les Animaux <em>et Nous</em></h1>
+    <p class="hero-sub">Plateforme de revision complete pour maitriser le theme officiel 2026 : imaginer, connaitre, comprendre l'animal.</p>
+    <div class="hero-cards">
+        <div class="hero-card green" onclick="showSection('expression')">
+            <div class="hero-card-num">Partie 1</div>
+            <h2>Expression Ecrite</h2>
+            <p>Methode, banque de references, plans modeles, entrainement interactif.</p>
+            <div class="arrow">&#8594;</div>
+        </div>
+        <div class="hero-card amber" onclick="showSection('commentaire')">
+            <div class="hero-card-num">Partie 2</div>
+            <h2>Commentaire de Texte</h2>
+            <p>Methode d'analyse, procedes, exemples commentes, exercices.</p>
+            <div class="arrow">&#8594;</div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PARTIE 1 — EXPRESSION ECRITE
+     ══════════════════════════════════════════ -->
+<main class="main-section" id="sectionExpression">
+    <div class="section-header green">
+        <h1>Expression Ecrite</h1>
+        <p>Methode complete, references exploitables, plans modeles et entrainement pour l'ecriture personnelle.</p>
+    </div>
+
+    <div class="tab-bar">
+        <button class="tab-btn active-green" onclick="showTab('expression','methode',this)">Methode</button>
+        <button class="tab-btn" onclick="showTab('expression','references',this)">References</button>
+        <button class="tab-btn" onclick="showTab('expression','plans',this)">Plans Modeles</button>
+        <button class="tab-btn" onclick="showTab('expression','entrainement',this)">Entrainement</button>
+    </div>
+
+    <!-- TAB: Methode -->
+    <div class="tab-panel active" id="expression-methode">
+        <div class="container">
+            <h2 class="section-title">Les 8 etapes de l'expression ecrite</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num green">1</div>
+                    <h3>Analyser le sujet</h3>
+                    <p>Lisez le sujet trois fois. Soulignez chaque mot porteur de sens. Reformulez le sujet avec vos propres mots pour verifier que vous l'avez compris.</p>
+                    <ul>
+                        <li>Reperer les mots-cles (ex : &laquo; rapport &raquo;, &laquo; evoluer &raquo;, &laquo; comprendre &raquo;)</li>
+                        <li>Identifier le <strong>theme precis</strong> (pas juste &laquo; les animaux &raquo;)</li>
+                        <li>Reperer les verbes d'instruction (montrez, discutez, pensez-vous que...)</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <div class="step-num green">2</div>
+                    <h3>Delimiter le champ</h3>
+                    <p>Qu'est-ce que le sujet demande exactement ? Quelles sont les limites a ne pas depasser ?</p>
+                    <ul>
+                        <li>Ne pas transformer un sujet sur la souffrance animale en sujet sur l'ecologie en general</li>
+                        <li>Rester dans le cadre du theme &laquo; les animaux et nous &raquo;</li>
+                        <li>Distinguer animal domestique / sauvage / d'elevage si le sujet le precise</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <div class="step-num green">3</div>
+                    <h3>Problematiser</h3>
+                    <p>Trouvez la <strong>tension</strong> dans le sujet. La problematique est la question a laquelle votre devoir repond. Elle ne doit jamais etre une simple reformulation du sujet.</p>
+                    <ul>
+                        <li>Cherchez l'opposition implicite (ex : connaitre vs imaginer)</li>
+                        <li>Formulez sous forme interrogative</li>
+                        <li>Exemple : &laquo; L'animal est-il un miroir de l'homme, ou possede-t-il une identite propre ? &raquo;</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <div class="step-num green">4</div>
+                    <h3>Mobiliser ses exemples</h3>
+                    <p>Sur votre brouillon, listez tous les exemples qui vous viennent, puis selectionnez les plus pertinents selon le sujet precis.</p>
+                    <ul>
+                        <li>Minimum 2 exemples differents par partie</li>
+                        <li>Varier les domaines : litterature, philosophie, science, art</li>
+                        <li>Ecarter les exemples hors-sujet meme s'ils sont brillants</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <div class="step-num green">5</div>
+                    <h3>Construire le plan</h3>
+                    <p>Le plan est l'ossature de votre copie. Choisissez un type de plan adapte au sujet :</p>
+                    <ul>
+                        <li><strong>These / Antithese / Synthese</strong> : pour les sujets qui invitent au debat</li>
+                        <li><strong>Analytique</strong> : constat / causes / consequences</li>
+                        <li><strong>Thematique</strong> : quand le sujet invite a explorer plusieurs facettes</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <div class="step-num green">6</div>
+                    <h3>Rediger l'introduction</h3>
+                    <p>L'introduction comporte 4 temps obligatoires :</p>
+                    <ul>
+                        <li><strong>Accroche</strong> : citation, fait, question percutante</li>
+                        <li><strong>Presentation du sujet</strong> : reformulation du theme</li>
+                        <li><strong>Problematique</strong> : la question centrale</li>
+                        <li><strong>Annonce du plan</strong> : les grandes etapes du raisonnement</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <div class="step-num green">7</div>
+                    <h3>Developper les arguments</h3>
+                    <p>Chaque paragraphe suit la logique <strong>T.A.E.</strong> :</p>
+                    <ul>
+                        <li><strong>These</strong> : l'idee que vous defendez dans ce paragraphe</li>
+                        <li><strong>Argument</strong> : le raisonnement qui soutient cette idee</li>
+                        <li><strong>Exemple</strong> : la reference precise qui illustre et prouve</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <div class="step-num green">8</div>
+                    <h3>Conclure proprement</h3>
+                    <p>La conclusion comporte 2 temps :</p>
+                    <ul>
+                        <li><strong>Bilan</strong> : reponse claire a la problematique, synthese du raisonnement</li>
+                        <li><strong>Ouverture</strong> : elargissement vers un enjeu connexe (pas une question vague)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tip-box green">
+                <span class="tip-icon">&#9733;</span>
+                <div><strong>Conseil de correcteur :</strong> Une copie avec un plan clair et des transitions soignees entre les parties obtient toujours une meilleure note qu'une copie riche en exemples mais mal organisee. La clarte prime sur l'erudition.</div>
+            </div>
+
+            <h2 class="section-title">Erreurs frequentes a eviter</h2>
+            <div class="do-dont">
+                <div class="do-col">
+                    <h4>A faire</h4>
+                    <ul>
+                        <li>Toujours relier l'exemple a l'argument</li>
+                        <li>Citer le titre et l'auteur a chaque reference</li>
+                        <li>Utiliser des connecteurs logiques varies</li>
+                        <li>Relire deux fois : une pour le fond, une pour l'orthographe</li>
+                        <li>Soigner les transitions entre parties</li>
+                    </ul>
+                </div>
+                <div class="dont-col">
+                    <h4>A ne pas faire</h4>
+                    <ul>
+                        <li>Lister des exemples sans les analyser</li>
+                        <li>Paraphraser les textes du corpus</li>
+                        <li>Donner son avis personnel sans argument</li>
+                        <li>&laquo; De tout temps, les hommes... &raquo; (accroche vide)</li>
+                        <li>Oublier l'annonce du plan dans l'intro</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-title">Connecteurs logiques utiles</h2>
+            <div class="connectors-box">
+                <h4>Pour introduire un argument</h4>
+                <div class="conn-grid">
+                    <div class="conn-item"><strong>En premier lieu</strong> / Tout d'abord</div>
+                    <div class="conn-item"><strong>Il convient de noter que</strong></div>
+                    <div class="conn-item"><strong>Force est de constater que</strong></div>
+                </div>
+            </div>
+            <div class="connectors-box">
+                <h4>Pour opposer / nuancer</h4>
+                <div class="conn-grid">
+                    <div class="conn-item"><strong>Neanmoins</strong> / Toutefois</div>
+                    <div class="conn-item"><strong>Il serait reducteur de</strong></div>
+                    <div class="conn-item"><strong>A l'inverse</strong> / En revanche</div>
+                    <div class="conn-item"><strong>Cependant, il faut nuancer</strong></div>
+                </div>
+            </div>
+            <div class="connectors-box">
+                <h4>Pour conclure / synthetiser</h4>
+                <div class="conn-grid">
+                    <div class="conn-item"><strong>En definitive</strong> / Ainsi</div>
+                    <div class="conn-item"><strong>Il ressort de cette analyse que</strong></div>
+                    <div class="conn-item"><strong>Au terme de cette reflexion</strong></div>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <header>
-        <h1>Imaginer, Connaître, Comprendre.</h1>
-        <p class="subtitle">Une ressource interactive pour maîtriser le thème de l'Animal en BTS.</p>
-    </header>
+    <!-- TAB: References -->
+    <div class="tab-panel" id="expression-references">
+        <div class="container">
+            <h2 class="section-title">Banque de references exploitables</h2>
+            <p style="color:var(--ink-2); margin-bottom:1rem; font-size:0.92rem;">Chaque fiche indique precisement quand et comment utiliser la reference. Cliquez sur &laquo; Details &raquo; pour voir les conseils de mobilisation.</p>
 
-    <section id="metho">
-        <h2>1. Méthodologie & Analyse</h2>
-        <div class="grid">
-            <div class="card">
-                <span class="card-tag">Synthèse</span>
-                <h3>La Question de Corpus</h3>
-                <p>L'objectif est de confronter les documents. Vous devez repérer :</p>
-                <ul>
-                    <li>Le vocabulaire (animal vs humain, sauvage vs domestique).</li>
-                    <li>Les antonymes et oppositions.</li>
-                    <li>Les points communs et divergences entre les auteurs (ex: Descartes vs Voltaire).</li>
-                </ul>
+            <div class="ref-filters">
+                <button class="filter-chip active" onclick="filterRefs('all', this)">Toutes</button>
+                <button class="filter-chip" onclick="filterRefs('philo', this)">Philosophie</button>
+                <button class="filter-chip" onclick="filterRefs('litt', this)">Litterature</button>
+                <button class="filter-chip" onclick="filterRefs('science', this)">Science</button>
+                <button class="filter-chip" onclick="filterRefs('art', this)">Arts</button>
+                <button class="filter-chip" onclick="filterRefs('essai', this)">Essais</button>
             </div>
-            <div class="card">
-                <span class="card-tag">Écriture Personnelle</span>
-                <h3>L'Essai</h3>
-                <p>Vous devez répondre à une problématique en mobilisant votre culture.</p>
-                <ul>
-                    <li>Utilisez des exemples mémorisés précis (titres, auteurs).</li>
-                    <li>Ne paraphrasez pas le corpus, apportez vos propres connaissances.</li>
-                    <li>Structurez : Thèse, Argument, Exemple.</li>
+
+            <div class="ref-grid">
+                <!-- REF 1: Descartes -->
+                <div class="ref-card" data-cat="philo">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge philo">Philosophie</span>
+                                <span class="power-badge fort">Reference forte</span>
+                            </div>
+                            <h3>Rene Descartes</h3>
+                            <div class="subtitle">Discours de la methode (1637) / Lettre au Marquis de Newcastle</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> L'animal est un automate, une &laquo; machine &raquo; denuee de raison, d'ame et de langage veritable. Ses comportements complexes ne sont que le produit de la disposition mecanique de ses organes. La souffrance animale, pour Descartes, n'est qu'une reaction mecanique, pas une experience consciente.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La singularite de l'homme face a l'animal</li>
+                                    <li>L'histoire des conceptions sur l'animal</li>
+                                    <li>La question du langage et de la raison</li>
+                                    <li>La domination humaine sur le vivant</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La sensibilite animale (utiliser comme repoussoir uniquement)</li>
+                                    <li>Le droit animal (positionner comme pensee depassee)</li>
+                                    <li>L'empathie envers les animaux</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Citer Descartes en ouverture de partie pour montrer <strong>la domination historique d'une vision reductrice</strong> de l'animal, puis s'en eloigner progressivement. Descartes fonctionne comme un point de depart critique dont on demontre les limites.</p>
+                        <blockquote>&laquo; Il est plus remarquable qu'il y ait des machines, faites de la main des hommes, qui ressemblent a des animaux, que si les animaux ressemblaient a des machines. &raquo;</blockquote>
+                        <h4>Liens avec d'autres auteurs</h4>
+                        <p><strong>S'oppose a :</strong> Voltaire (sensibilite), Montaigne (relativisme), Singer (antispécisme). <strong>Complete :</strong> Malebranche (qui radicalise encore la these).</p>
+                    </div>
+                </div>
+
+                <!-- REF 2: Montaigne -->
+                <div class="ref-card" data-cat="philo">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge philo">Philosophie</span>
+                                <span class="power-badge original">Exemple original</span>
+                            </div>
+                            <h3>Michel de Montaigne</h3>
+                            <div class="subtitle">Essais, &laquo; Apologie de Raymond Sebond &raquo; (1580)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> L'homme est presomptueux de se croire superieur a l'animal. Montaigne relativise radicalement la frontiere : les animaux communiquent, jouent, ressentent. &laquo; La presomption est notre maladie naturelle et originelle. &raquo; Il interroge : est-ce l'homme qui juge l'animal, ou l'inverse ?
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La frontiere homme / animal</li>
+                                    <li>La presomption ou l'arrogance humaine</li>
+                                    <li>La question du regard qu'on porte sur l'animal</li>
+                                    <li>L'intelligence animale</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'animal utilitaire (elevage, travail) — trop philosophique</li>
+                                    <li>La protection juridique des animaux — trop ancien</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Montaigne est un atout precieux pour <strong>remettre en cause la hierarchie homme/animal</strong>. Il permet de montrer qu'avant meme la science moderne, un penseur humaniste doutait deja de la superiorite humaine. Reference ideale en synthese ou pour nuancer une these trop anthropocentree.</p>
+                        <blockquote>&laquo; Quand je me joue a ma chatte, qui sait si elle passe son temps de moi plus que je ne fais d'elle ? &raquo;</blockquote>
+                        <h4>Liens avec d'autres auteurs</h4>
+                        <p><strong>S'oppose a :</strong> Descartes. <strong>Prolonge :</strong> Voltaire, Darwin, de Waal (modernise la meme intuition).</p>
+                    </div>
+                </div>
+
+                <!-- REF 3: Voltaire -->
+                <div class="ref-card" data-cat="philo">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge philo">Philosophie</span>
+                                <span class="power-badge fort">Reference forte</span>
+                            </div>
+                            <h3>Voltaire</h3>
+                            <div class="subtitle">Dictionnaire philosophique, article &laquo; Betes &raquo; (1764)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> Refutation frontale de Descartes. L'animal possede des organes semblables aux notres, donc il ressent la douleur. Affirmer le contraire releve de la &laquo; barbarie &raquo;. Voltaire defend une ethique fondee sur la sensibilite partagee entre l'homme et l'animal.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La souffrance animale</li>
+                                    <li>Les droits des animaux</li>
+                                    <li>La cruaute ou la maltraitance</li>
+                                    <li>L'evolution des mentalites sur l'animal</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'imaginaire et le symbolisme animalier (trop concret)</li>
+                                    <li>La representation artistique de l'animal</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Voltaire est l'arme ideale contre le cartesianisme. A utiliser comme <strong>pivot argumentatif</strong> : apres avoir expose la these de l'animal-machine, Voltaire permet de basculer vers une reconnaissance de la sensibilite animale.</p>
+                        <blockquote>&laquo; Quelle pitie, quelle pauvrete d'avoir dit que les betes sont des machines privees de connaissance et de sentiment ! &raquo;</blockquote>
+                        <h4>Liens avec d'autres auteurs</h4>
+                        <p><strong>S'oppose a :</strong> Descartes, Malebranche. <strong>Precurseur de :</strong> Singer, Bentham, droit animal moderne.</p>
+                    </div>
+                </div>
+
+                <!-- REF 4: Rousseau -->
+                <div class="ref-card" data-cat="philo">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge philo">Philosophie</span>
+                                <span class="power-badge classique">Classique</span>
+                            </div>
+                            <h3>Jean-Jacques Rousseau</h3>
+                            <div class="subtitle">Discours sur l'origine de l'inegalite (1755)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> L'animal est guide par l'instinct — parfait mais fige. L'homme se distingue par la <strong>perfectibilite</strong> : la capacite d'evoluer, de progresser, mais aussi de se degrader. Cependant, Rousseau reconnait aussi a l'animal une <strong>pitie naturelle</strong> qui le rapproche de l'homme.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>Ce qui distingue l'homme de l'animal</li>
+                                    <li>L'instinct vs la raison</li>
+                                    <li>La pitie, la compassion envers les animaux</li>
+                                    <li>La question de la liberte</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La continuite homme/animal (Rousseau maintient une difference)</li>
+                                    <li>L'intelligence animale au sens moderne</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Rousseau permet une <strong>position nuancee</strong> : il distingue l'homme de l'animal sans mepriser ce dernier. Ideal en synthese pour depasser l'opposition Descartes / Voltaire.</p>
+                        <h4>Liens</h4>
+                        <p><strong>Nuance :</strong> Descartes (ajoute la pitie). <strong>Complete :</strong> Voltaire (autre angle). <strong>Prolonge :</strong> Darwin (perfectibilite = evolution).</p>
+                    </div>
+                </div>
+
+                <!-- REF 5: La Fontaine -->
+                <div class="ref-card" data-cat="litt">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge litt">Litterature</span>
+                                <span class="power-badge fort">Reference forte</span>
+                            </div>
+                            <h3>Jean de La Fontaine</h3>
+                            <div class="subtitle">Fables (1668-1694)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> L'animal est un <strong>miroir de l'homme</strong>. A travers le loup, le renard, l'agneau, La Fontaine critique les vices humains : la tyrannie, la flatterie, l'injustice. L'animal est un pretexte narratif pour instruire en divertissant, mais La Fontaine lui accorde aussi une veritable individualite et une psychologie.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'animal comme miroir de l'homme</li>
+                                    <li>Les symboles animaliers</li>
+                                    <li>L'animal dans la litterature</li>
+                                    <li>La fonction educative de l'animal</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La souffrance animale reelle (La Fontaine reste symbolique)</li>
+                                    <li>L'ethique ou le droit animal</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>La Fontaine est incontournable pour parler de l'animal comme <strong>figure symbolique et narrative</strong>. Permet de montrer que l'animal en litterature est toujours un revelateur de l'humain.</p>
+                        <blockquote>&laquo; La raison du plus fort est toujours la meilleure. &raquo; — Le Loup et l'Agneau</blockquote>
+                    </div>
+                </div>
+
+                <!-- REF 6: Zola -->
+                <div class="ref-card" data-cat="litt">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge litt">Litterature</span>
+                                <span class="power-badge fort">Reference forte</span>
+                            </div>
+                            <h3>Emile Zola</h3>
+                            <div class="subtitle">Germinal (1885)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> Le cheval Trompette, enfonce dans la mine avec les ouvriers, incarne la <strong>souffrance partagee</strong> entre l'homme et l'animal. Quand Trompette meurt, les mineurs pleurent : la douleur de l'animal renvoie a leur propre condition d'exploitation. L'animal n'est plus un symbole abstrait mais un <strong>compagnon de misere</strong>.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La souffrance animale</li>
+                                    <li>Le lien affectif homme/animal</li>
+                                    <li>L'animal de labeur / l'animal exploite</li>
+                                    <li>La compassion et l'empathie</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'intelligence animale (Trompette n'est pas presente comme intelligent)</li>
+                                    <li>L'animal sauvage ou la biodiversite</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Trompette permet de montrer que la <strong>frontiere entre misere humaine et souffrance animale s'efface</strong> quand les deux partagent un meme destin d'exploitation. Tres efficace en couple avec Hugo (Melancholia).</p>
+                    </div>
+                </div>
+
+                <!-- REF 7: Kafka -->
+                <div class="ref-card" data-cat="litt">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge litt">Litterature</span>
+                                <span class="power-badge original">Exemple original</span>
+                            </div>
+                            <h3>Franz Kafka</h3>
+                            <div class="subtitle">La Metamorphose (1915)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> Gregor Samsa se reveille transforme en insecte. La metamorphose brouille radicalement la frontiere homme/animal. Kafka montre que <strong>c'est le regard des autres</strong> (la famille) qui definit l'humanite de Gregor : devenu insecte, il est progressivement deshumanise par les siens alors qu'il conserve sa conscience. L'animalite est ici une metaphore de l'exclusion.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La frontiere homme / animal</li>
+                                    <li>L'identite et la deshumanisation</li>
+                                    <li>Le regard de l'autre sur l'animalite</li>
+                                    <li>L'animal comme metaphore</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La protection animale concrete</li>
+                                    <li>La relation affective a l'animal domestique</li>
+                                    <li>L'animal reel (Kafka parle de l'animal metaphorique)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Kafka fait gagner des points car c'est une reference <strong>moins attendue qu'Orwell</strong> et plus profonde philosophiquement. Ideal pour un sujet sur la condition humaine vue a travers l'animal.</p>
+                    </div>
+                </div>
+
+                <!-- REF 8: Singer -->
+                <div class="ref-card" data-cat="essai">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge essai">Essai</span>
+                                <span class="power-badge fort">Reference forte</span>
+                            </div>
+                            <h3>Peter Singer</h3>
+                            <div class="subtitle">La Liberation animale (1975)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> Fondateur du mouvement <strong>antispéciste</strong>. Singer soutient que la capacite a souffrir est le seul critere moral pertinent, pas l'appartenance a une espece. Refuser des droits a un etre parce qu'il est animal est une discrimination comparable au racisme ou au sexisme. Il reprend la formule de Bentham.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>Le droit animal, la condition animale</li>
+                                    <li>L'ethique et la morale</li>
+                                    <li>L'elevage intensif, l'experimentation animale</li>
+                                    <li>La frontiere morale entre les especes</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'imaginaire animalier (Singer est trop concret)</li>
+                                    <li>L'animal dans l'art ou la litterature</li>
+                                    <li>Sujet qui demande une position nuancee (Singer est radical)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Singer est une reference <strong>percutante mais a manier avec nuance</strong>. Ideal pour une antithese forte. Ne pas adherer totalement a l'antispécisme mais montrer qu'il oblige a repenser nos habitudes.</p>
+                        <blockquote>&laquo; La question n'est pas : peuvent-ils raisonner ? Ni : peuvent-ils parler ? Mais : peuvent-ils souffrir ? &raquo; — Bentham, repris par Singer</blockquote>
+                    </div>
+                </div>
+
+                <!-- REF 9: Orwell -->
+                <div class="ref-card" data-cat="litt">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge litt">Litterature</span>
+                                <span class="power-badge classique">Classique</span>
+                            </div>
+                            <h3>George Orwell</h3>
+                            <div class="subtitle">La Ferme des animaux (1945)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> Allegorie politique : les animaux de la ferme renversent les humains, puis les cochons reproduisent exactement la meme oppression. L'animal sert a denoncer les mecanismes du totalitarisme. &laquo; Tous les animaux sont egaux, mais certains sont plus egaux que d'autres. &raquo;
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'animal comme miroir de l'homme (politique)</li>
+                                    <li>La domination, le pouvoir</li>
+                                    <li>L'allegorie animale en litterature</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'animal reel, sa sensibilite, son vecu</li>
+                                    <li>Le rapport affectif homme/animal</li>
+                                    <li>La biodiversite ou l'ecologie</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Orwell est <strong>tres utilise par les candidats</strong> : il faut donc aller au-dela du simple resume. Montrez que l'animal chez Orwell est un <em>miroir inversant</em> : il revele la bestialite de l'homme, pas l'humanite de l'animal.</p>
+                    </div>
+                </div>
+
+                <!-- REF 10: Colette -->
+                <div class="ref-card" data-cat="litt">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge litt">Litterature</span>
+                                <span class="power-badge original">Exemple original</span>
+                            </div>
+                            <h3>Colette</h3>
+                            <div class="subtitle">Dialogues de betes (1904), La Paix chez les betes (1916)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> Colette donne la parole aux animaux avec un respect profond de leur <strong>individualite</strong>. Elle observe ses chats, ses chiens avec une attention quasi scientifique mais aussi une tendresse sans mievrerie. L'animal chez Colette n'est ni un symbole ni un objet : c'est un <strong>sujet a part entiere</strong>, dote d'une personnalite, de desirs, de preferences.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La relation affective homme/animal</li>
+                                    <li>L'animal familier, domestique</li>
+                                    <li>Le dialogue et la communication avec l'animal</li>
+                                    <li>L'observation et la connaissance de l'animal</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'animal sauvage ou la faune menacee</li>
+                                    <li>Les questions ethiques et juridiques</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Colette est <strong>rarement citee par les candidats</strong>, ce qui en fait un atout. Elle montre qu'on peut <em>connaitre</em> l'animal sans le reduire a un objet d'etude, par l'attention et l'empathie.</p>
+                        <blockquote>&laquo; Nos betes parfaites, limitees, sans remords... &raquo;</blockquote>
+                    </div>
+                </div>
+
+                <!-- REF 11: Darwin -->
+                <div class="ref-card" data-cat="science">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge science">Science</span>
+                                <span class="power-badge fort">Reference forte</span>
+                            </div>
+                            <h3>Charles Darwin</h3>
+                            <div class="subtitle">L'Expression des emotions chez l'homme et les animaux (1872)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> Les emotions humaines (peur, joie, colere) existent aussi chez les animaux et partagent une <strong>origine evolutive commune</strong>. Darwin demontre un <strong>continuum</strong> entre l'homme et l'animal, detruisant l'idee d'une rupture nette. L'homme n'est pas au-dessus de la nature : il en fait partie.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>Le continuum homme/animal</li>
+                                    <li>Les emotions et la sensibilite animale</li>
+                                    <li>L'evolution des conceptions scientifiques</li>
+                                    <li>La remise en cause de la superiorite humaine</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'animal dans l'imaginaire et la fiction</li>
+                                    <li>L'animal comme symbole ou metaphore</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Darwin apporte la <strong>caution scientifique</strong> a ce que Montaigne et Voltaire avaient pressenti. Tres efficace pour passer de la philosophie a la science dans un raisonnement progressif.</p>
+                    </div>
+                </div>
+
+                <!-- REF 12: Baudelaire -->
+                <div class="ref-card" data-cat="litt">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge litt">Litterature</span>
+                                <span class="power-badge classique">Classique</span>
+                            </div>
+                            <h3>Charles Baudelaire</h3>
+                            <div class="subtitle">Les Fleurs du Mal — &laquo; L'Albatros &raquo;, &laquo; Le Chat &raquo; (1857)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> L'animal chez Baudelaire est un <strong>symbole de ce que l'homme ne parvient pas a etre</strong>. L'albatros incarne le poete : majestueux en vol, ridiculise a terre. Le chat symbolise le mystere, la grace, la sensualite. L'animal est porteur d'une beaute et d'une liberte auxquelles l'homme aspire.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'animal comme symbole en poesie</li>
+                                    <li>L'imaginaire animalier</li>
+                                    <li>Le rapport entre beaute et animalite</li>
+                                    <li>La representation artistique de l'animal</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La condition animale reelle</li>
+                                    <li>L'ethique ou les droits animaux</li>
+                                    <li>La science et le comportement animal</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Baudelaire est ideal pour traiter la dimension <strong>esthetique et imaginaire</strong> de l'animal. L'Albatros est tres connu : allez au-dela du resume en montrant que le poeme pose la question de la place du different dans la societe.</p>
+                    </div>
+                </div>
+
+                <!-- REF 13: Lascaux & Rosa Bonheur -->
+                <div class="ref-card" data-cat="art">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge art">Arts</span>
+                                <span class="power-badge original">Exemple original</span>
+                            </div>
+                            <h3>Lascaux / Rosa Bonheur</h3>
+                            <div class="subtitle">Peintures rupestres (-17 000 ans) / Le Marche aux chevaux (1853)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> Depuis les grottes de Lascaux, l'animal est le <strong>premier sujet de l'art humain</strong>. Cette fascination traverse les epoques : Rosa Bonheur, au XIXe siecle, peint les chevaux avec un realisme qui leur rend une dignite et une puissance propres. L'animal dans l'art n'est jamais neutre : il revele le rapport de l'homme au vivant.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>La representation de l'animal dans l'art</li>
+                                    <li>L'imaginaire et la fascination pour l'animal</li>
+                                    <li>L'evolution du regard humain sur le vivant</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'ethique ou le droit animal</li>
+                                    <li>La condition animale contemporaine</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>Couple Lascaux / Bonheur : montre que <strong>de la prehistoire au XIXe siecle, l'animal est au coeur de la creation humaine</strong>. Permet d'ouvrir sur la dimension imaginaire et sacree du rapport a l'animal.</p>
+                    </div>
+                </div>
+
+                <!-- REF 14: De Waal -->
+                <div class="ref-card" data-cat="science">
+                    <div class="ref-card-head">
+                        <div>
+                            <div style="display:flex;gap:0.5rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+                                <span class="cat-badge science">Science</span>
+                                <span class="power-badge original">Exemple original</span>
+                            </div>
+                            <h3>Frans de Waal</h3>
+                            <div class="subtitle">L'Age de l'empathie (2009) / Sommes-nous trop &laquo; betes &raquo; pour comprendre l'intelligence des animaux ? (2016)</div>
+                        </div>
+                    </div>
+                    <div class="ref-thesis">
+                        <strong>These centrale :</strong> Primatologue de renommee mondiale, de Waal demontre que <strong>l'empathie, la cooperation et le sens moral existent chez les primates</strong>. Les bonobos consolent leurs semblables, les chimpanzes negocient. De Waal critique notre incapacite a reconnaitre l'intelligence animale parce que nous la mesurons avec des criteres humains.
+                    </div>
+                    <button class="ref-toggle" onclick="toggleRefDetail(this)">
+                        Details et conseils de mobilisation <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="ref-detail">
+                        <div class="use-grid">
+                            <div class="ref-use-good">
+                                <h5>&#10003; Mobilisable si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'intelligence animale</li>
+                                    <li>L'empathie et les emotions chez l'animal</li>
+                                    <li>La continuite homme/animal</li>
+                                    <li>La connaissance scientifique de l'animal</li>
+                                </ul>
+                            </div>
+                            <div class="ref-use-bad">
+                                <h5>&#10007; Risque si le sujet porte sur...</h5>
+                                <ul>
+                                    <li>L'animal symbolique ou litteraire</li>
+                                    <li>L'animal domestique au quotidien</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h4>Angle d'utilisation precis</h4>
+                        <p>De Waal est la <strong>version scientifique contemporaine de Montaigne</strong>. Il apporte des preuves experimentales a ce que la philosophie pressentait. Reference peu utilisee par les candidats = plus-value dans la copie.</p>
+                    </div>
+                </div>
+
+            </div><!-- /ref-grid -->
+        </div>
+    </div>
+
+    <!-- TAB: Plans Modeles -->
+    <div class="tab-panel" id="expression-plans">
+        <div class="container">
+            <h2 class="section-title">Plans detailles et paragraphes modeles</h2>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        Sujet 1 : &laquo; L'animal nous revele-t-il ce que nous sommes ? &raquo;
+                        <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <h4>Problematique</h4>
+                            <p>Dans quelle mesure notre rapport a l'animal — dans l'art, la pensee et le quotidien — est-il un revelateur de notre propre condition humaine ?</p>
+
+                            <h4>Plan detaille</h4>
+                            <p><strong>I. L'animal comme miroir de nos travers et de nos vertus</strong></p>
+                            <ul>
+                                <li>A. La Fontaine : l'animal incarne les vices humains (orgueil, flatterie, tyrannie)</li>
+                                <li>B. Orwell : l'allegorie animale revele les mecanismes du pouvoir politique</li>
+                            </ul>
+                            <p><strong>II. L'animal comme frontiere qui definit l'humain</strong></p>
+                            <ul>
+                                <li>A. Descartes : nier l'ame de l'animal pour affirmer la singularite de l'homme</li>
+                                <li>B. Kafka : la metamorphose brouille cette frontiere et questionne notre identite</li>
+                            </ul>
+                            <p><strong>III. L'animal pour lui-meme : au-dela du miroir</strong></p>
+                            <ul>
+                                <li>A. Colette : observer l'animal comme sujet, non comme reflet</li>
+                                <li>B. De Waal : decouvrir une intelligence propre oblige a repenser la notre</li>
+                            </ul>
+
+                            <h4>Introduction modele</h4>
+                            <div class="model-text">
+                                &laquo; Quand je me joue a ma chatte, qui sait si elle passe son temps de moi plus que je ne fais d'elle ? &raquo; Cette interrogation de Montaigne, vieille de plus de quatre siecles, resonne toujours avec une force singuliere. Elle pose une question fondamentale : dans notre relation a l'animal, est-ce l'autre que nous observons, ou nous-memes ? Car l'animal, dans notre imaginaire comme dans notre pensee, n'est jamais tout a fait etranger : il est tour a tour miroir, frontiere et enigme. L'animal nous revele-t-il veritablement ce que nous sommes, ou son alterite irreductible nous echappe-t-elle ? Nous examinerons d'abord comment l'animal sert de revelateur de nos travers, puis comment il fonctionne comme frontiere definissant l'humain, avant de nous demander si l'animal ne merite pas d'etre compris pour lui-meme, au-dela du reflet.
+                            </div>
+
+                            <h4>Paragraphe modele (I.A)</h4>
+                            <div class="model-text">
+                                La Fontaine, dans ses Fables (1668-1694), fait de l'animal le porte-parole involontaire des vices humains. Le loup incarne la tyrannie, le renard la ruse, l'agneau l'innocence broyee par la force. Dans &laquo; Le Loup et l'Agneau &raquo;, la sentence &laquo; La raison du plus fort est toujours la meilleure &raquo; denonce, sous le masque animalier, l'injustice des rapports de pouvoir entre les hommes. L'animal n'est donc pas ici un objet de connaissance mais un instrument de revelation : en projetant sur lui nos comportements, nous les voyons avec une clarte que l'observation directe de la societe humaine ne permet pas toujours. Le miroir animal a cette vertu paradoxale : c'est en observant l'autre espece que l'homme se reconnait le mieux.
+                            </div>
+
+                            <h4>Conclusion modele</h4>
+                            <div class="model-text">
+                                Au terme de cette reflexion, il apparait que l'animal est, pour l'homme, bien plus qu'un objet d'etude ou de divertissement : il est un revelateur puissant de nos contradictions, de nos limites et de nos aspirations. De La Fontaine a de Waal, en passant par Kafka, l'animal nous renvoie sans cesse a la question de notre propre humanite. Cependant, reduire l'animal au seul role de miroir serait une nouvelle forme de presomption. Peut-etre la vraie revolution consiste-t-elle a accepter que l'animal possede un monde propre, une interiorite que nous ne comprendrons jamais totalement — et que c'est justement cette part d'inconnaissable qui rend notre rapport au vivant si fascinant.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        Sujet 2 : &laquo; Peut-on parler de droits des animaux ? &raquo;
+                        <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <h4>Problematique</h4>
+                            <p>La notion de &laquo; droit &raquo;, historiquement reservee aux humains, peut-elle et doit-elle s'etendre aux animaux ?</p>
+
+                            <h4>Plan detaille</h4>
+                            <p><strong>I. Une longue tradition de domination qui exclut l'animal du droit</strong></p>
+                            <ul>
+                                <li>A. Descartes et la tradition cartesienne : l'animal sans ame ne peut avoir de droits</li>
+                                <li>B. Le droit francais historique : l'animal comme &laquo; bien meuble &raquo;</li>
+                            </ul>
+                            <p><strong>II. La reconnaissance progressive de la sensibilite animale</strong></p>
+                            <ul>
+                                <li>A. Voltaire et les Lumieres : premiere defense de l'animal souffrant</li>
+                                <li>B. Evolution juridique : loi de 2015, l'animal &laquo; etre vivant doue de sensibilite &raquo;</li>
+                            </ul>
+                            <p><strong>III. Vers une ethique du vivant : possibilites et limites</strong></p>
+                            <ul>
+                                <li>A. Singer et l'antispécisme : repenser l'egalite sans hierarchie d'espece</li>
+                                <li>B. Limites : l'animal peut-il etre titulaire de droits sans les exercer ?</li>
+                            </ul>
+
+                            <h4>Paragraphe modele (II.A)</h4>
+                            <div class="model-text">
+                                Des le XVIIIe siecle, Voltaire s'eleve contre la vision cartesienne de l'animal-machine. Dans son Dictionnaire philosophique (1764), il affirme avec vigueur : &laquo; Quelle pitie, quelle pauvrete d'avoir dit que les betes sont des machines privees de connaissance et de sentiment ! &raquo; Pour Voltaire, la similitude des organes entre l'homme et l'animal suffit a prouver une sensibilite partagee. L'argument est simple mais redoutable : si l'animal possede les memes organes sensoriels que l'homme, comment nier qu'il ressente la douleur ? Cette position, fondee sur l'observation empirique, prefigure les avancees modernes du droit animal. Voltaire ne formule pas encore la notion de &laquo; droit &raquo; au sens juridique, mais il pose le socle moral sur lequel ce droit pourra s'edifier : la souffrance comme critere ethique.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        Formulations elegantes et expressions utiles
+                        <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <h4>Pour introduire une reference</h4>
+                            <ul>
+                                <li>&laquo; Comme le montre [auteur] dans [oeuvre]... &raquo;</li>
+                                <li>&laquo; C'est ce qu'illustre avec force [auteur] lorsqu'il... &raquo;</li>
+                                <li>&laquo; Cette idee trouve un echo remarquable chez [auteur], qui... &raquo;</li>
+                            </ul>
+                            <h4>Pour nuancer</h4>
+                            <ul>
+                                <li>&laquo; Toutefois, il serait reducteur de considerer que... &raquo;</li>
+                                <li>&laquo; Cette position, si seduisante soit-elle, se heurte a... &raquo;</li>
+                                <li>&laquo; On peut neanmoins objecter que... &raquo;</li>
+                            </ul>
+                            <h4>Pour synthetiser</h4>
+                            <ul>
+                                <li>&laquo; Il apparait donc que l'animal occupe une position ambivalente... &raquo;</li>
+                                <li>&laquo; Ce qui se joue ici depasse la simple question de... &raquo;</li>
+                                <li>&laquo; Au-dela de l'opposition apparente, c'est bien la question de... qui se pose. &raquo;</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB: Entrainement -->
+    <div class="tab-panel" id="expression-entrainement">
+        <div class="container">
+            <h2 class="section-title">Sujet aleatoire</h2>
+            <div class="random-subject-box">
+                <h3>Tirez un sujet d'expression ecrite</h3>
+                <div class="random-subject-text" id="randomSubjectText">Cliquez sur le bouton pour generer un sujet.</div>
+                <button class="random-btn" onclick="randomSubject()">Nouveau sujet</button>
+            </div>
+
+            <h2 class="section-title">Quiz — Expression ecrite</h2>
+            <div class="quiz-container" id="quizExprContainer">
+                <div class="quiz-card">
+                    <div class="quiz-progress" id="quizExprProgress"></div>
+                    <h3 id="quizExprQuestion"></h3>
+                    <div id="quizExprOptions"></div>
+                    <div class="quiz-explain" id="quizExprExplain"></div>
+                    <button class="quiz-next" id="quizExprNext" onclick="nextQuizQuestion('expr')">Question suivante</button>
+                </div>
+            </div>
+            <div class="quiz-score" id="quizExprScore" style="display:none;">
+                <h3>Quiz termine !</h3>
+                <div class="big-num" id="quizExprScoreNum"></div>
+                <p style="color:var(--ink-2);margin-top:0.5rem;" id="quizExprScoreText"></p>
+                <button class="random-btn" style="margin-top:1rem;" onclick="initQuiz('expr')">Recommencer</button>
+            </div>
+
+            <h2 class="section-title">Fiches memoire (Flashcards)</h2>
+            <p style="color:var(--ink-2);margin-bottom:1rem;font-size:0.92rem;text-align:center;">Cliquez sur la carte pour la retourner. Ideal pour memoriser les references cles.</p>
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard" onclick="flipCard()">
+                    <div class="flashcard-face flashcard-front">
+                        <h3 id="flashFrontTitle"></h3>
+                        <p id="flashFrontSub"></p>
+                    </div>
+                    <div class="flashcard-face flashcard-back">
+                        <p id="flashBackText"></p>
+                    </div>
+                </div>
+                <div class="flashcard-counter" id="flashCounter"></div>
+                <div class="flashcard-nav">
+                    <button class="flashcard-btn" onclick="prevFlashcard()">&#8592; Precedente</button>
+                    <button class="flashcard-btn" onclick="nextFlashcard()">Suivante &#8594;</button>
+                </div>
+                <div class="flashcard-hint">Cliquez sur la carte pour voir la reponse</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- ══════════════════════════════════════════
+     PARTIE 2 — COMMENTAIRE DE TEXTE
+     ══════════════════════════════════════════ -->
+<main class="main-section" id="sectionCommentaire">
+    <div class="section-header amber">
+        <h1>Commentaire de Texte</h1>
+        <p>Methode d'analyse pas a pas, procedes litteraires, exemples commentes et exercices pratiques.</p>
+    </div>
+
+    <div class="tab-bar">
+        <button class="tab-btn active-amber" onclick="showTab('commentaire','methode',this)">Methode</button>
+        <button class="tab-btn" onclick="showTab('commentaire','procedes',this)">Procedes</button>
+        <button class="tab-btn" onclick="showTab('commentaire','exemples',this)">Exemples commentes</button>
+        <button class="tab-btn" onclick="showTab('commentaire','entrainement',this)">Entrainement</button>
+    </div>
+
+    <!-- TAB: Methode Commentaire -->
+    <div class="tab-panel active" id="commentaire-methode">
+        <div class="container">
+            <h2 class="section-title">Les 7 etapes du commentaire de texte</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num amber">1</div>
+                    <h3>Premiere lecture</h3>
+                    <p>Lisez le texte entierement, sans chercher de procedes. Notez vos <strong>impressions generales</strong> : quel est le ton ? Quelle emotion se degage ? De quoi parle le texte ?</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num amber">2</div>
+                    <h3>Identifier le texte</h3>
+                    <p>Determinez : <strong>auteur, oeuvre, date, genre</strong> (poeme, essai, recit, discours). Puis identifiez le <strong>theme precis</strong> en lien avec &laquo; les animaux et nous &raquo;.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num amber">3</div>
+                    <h3>Reperer la these ou l'intention</h3>
+                    <p>Quel est le <strong>message central</strong> ? Que veut dire l'auteur a propos de l'animal ? Defend-il une these ? Denonce-t-il quelque chose ? Exprime-t-il une emotion ?</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num amber">4</div>
+                    <h3>Reperer les procedes d'ecriture</h3>
+                    <p>Soulignez les figures de style, les champs lexicaux, les effets de rythme, la ponctuation remarquable. Chaque procede doit etre <strong>nomme, cite et interprete</strong>.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num amber">5</div>
+                    <h3>Organiser par axes</h3>
+                    <p>Regroupez vos observations en <strong>2 ou 3 axes d'analyse</strong> thematiques. Ne commentez pas le texte ligne par ligne, mais par idees directrices.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num amber">6</div>
+                    <h3>Rediger le commentaire</h3>
+                    <p>Pour chaque axe, suivez le schema : <strong>idee &rarr; citation &rarr; analyse du procede &rarr; interpretation</strong>. C'est cette derniere etape qui distingue une bonne copie.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num amber">7</div>
+                    <h3>Introduction et conclusion</h3>
+                    <p><strong>Intro :</strong> presenter l'auteur, le texte, le theme, annoncer les axes. <strong>Conclusion :</strong> bilan de l'analyse + ouverture vers un autre texte ou une question plus large.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title">La formule magique du paragraphe d'analyse</h2>
+            <div class="tip-box amber">
+                <span class="tip-icon">&#9733;</span>
+                <div>
+                    <strong>Citation &rarr; Procede &rarr; Effet / Interpretation</strong><br>
+                    C'est la structure que chaque paragraphe doit suivre. Exemple :<br>
+                    <em>&laquo; Le poete compare l'albatros a un "prince des nuees" (metaphore). Cette image royale souligne la noblesse naturelle de l'oiseau et, par extension, celle du poete incompris par la societe. &raquo;</em>
+                </div>
+            </div>
+
+            <h2 class="section-title">A faire / A ne pas faire</h2>
+            <div class="do-dont">
+                <div class="do-col">
+                    <h4>Bon commentaire</h4>
+                    <ul>
+                        <li>Citer le texte entre guillemets</li>
+                        <li>Nommer le procede utilise</li>
+                        <li>Expliquer l'effet produit sur le lecteur</li>
+                        <li>Relier a l'intention de l'auteur</li>
+                        <li>Utiliser un vocabulaire d'analyse precis</li>
+                    </ul>
+                </div>
+                <div class="dont-col">
+                    <h4>Mauvais commentaire</h4>
+                    <ul>
+                        <li>Paraphraser : repeter ce que dit le texte sans analyser</li>
+                        <li>Lister les procedes sans les interpreter</li>
+                        <li>&laquo; L'auteur utilise une metaphore &raquo; (sans dire laquelle ni son effet)</li>
+                        <li>Donner son opinion personnelle (&laquo; J'ai aime ce texte &raquo;)</li>
+                        <li>Oublier de citer le texte</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-title">Checklist de relecture</h2>
+            <div class="card" style="max-width:600px;">
+                <ul style="list-style:none;">
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Mon intro presente l'auteur, le texte et annonce les axes</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Chaque paragraphe contient au moins une citation</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Chaque procede est nomme et interprete</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Je ne fais pas de paraphrase</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Mes transitions entre les axes sont fluides</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Ma conclusion fait un bilan et une ouverture</li>
+                    <li style="padding:0.4rem 0;">&#9744; J'ai relu pour l'orthographe</li>
                 </ul>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="penseurs">
-        <h2>2. Les Grands Penseurs</h2>
-        <p style="margin-bottom: 2rem; color: var(--text-secondary);">Les positions clés à maîtriser pour le débat.</p>
-
-        <div class="grid">
-            <div class="card">
-                <h3>René Descartes</h3>
-                <p class="card-tag">L'Animal-Machine</p>
-                <p><strong>Thèse :</strong> L'animal est un assemblage de rouages, sans âme, ni raison, ni parole.
-                Il agit seulement par instinct et disposition de ses organes.</p>
-                <p><em>Contexte :</em> XVIIe siècle, vision mécaniste.</p>
-            </div>
-
-            <div class="card">
-                <h3>Voltaire</h3>
-                <p class="card-tag">La Sensibilité</p>
-                <p><strong>Thèse :</strong> Réfutation de Descartes. L'animal possède des organes semblables aux nôtres, donc il ressent la douleur.
-                Il possède une intelligence pratique.</p>
-                <p><em>Citation :</em> "Quelle barbarie de dire que les bêtes sont des machines..." (Dictionnaire Philo).</p>
-            </div>
-
-            <div class="card">
-                <h3>J.J. Rousseau</h3>
-                <p class="card-tag">Liberté vs Instinct</p>
-                <p><strong>Thèse :</strong> L'animal est une machine ingénieuse, mais il est guidé par l'instinct (il ne peut pas s'en écarter).
-                L'homme se distingue par sa liberté et sa perfectibilité (capacité à évoluer).</p>
-            </div>
-
-            <div class="card">
-                <h3>Bekoff & Ethologues</h3>
-                <p class="card-tag">Justice & Émotions</p>
-                <p><strong>Thèse :</strong> Il existe un "continuum" entre l'homme et l'animal.
-                Les animaux jouent, ont un sens de l'équité (justice sociale) et communiquent.</p>
+    <!-- TAB: Procedes -->
+    <div class="tab-panel" id="commentaire-procedes">
+        <div class="container">
+            <h2 class="section-title">Glossaire des procedes litteraires</h2>
+            <p style="color:var(--ink-2);margin-bottom:1.5rem;font-size:0.92rem;">Chaque procede est illustre par un exemple en lien avec le theme des animaux.</p>
+            <div class="procede-grid">
+                <div class="procede-card">
+                    <h4>Metaphore</h4>
+                    <div class="def">Comparaison implicite (sans outil de comparaison) entre deux elements.</div>
+                    <div class="example">&laquo; Ce prince des nuees &raquo; — Baudelaire designe l'albatros, soulignant sa noblesse aerienne.</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Comparaison</h4>
+                    <div class="def">Rapprochement explicite entre deux elements, avec un outil (&laquo; comme &raquo;, &laquo; tel &raquo;, &laquo; semblable a &raquo;).</div>
+                    <div class="example">&laquo; L'homme agit comme le loup envers ses semblables &raquo; — rapprochement critique de la violence humaine et animale.</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Personnification</h4>
+                    <div class="def">Attribuer des qualites humaines a un animal ou un objet.</div>
+                    <div class="example">&laquo; Le cheval pleurait dans l'ombre &raquo; — Hugo prete a l'animal une souffrance consciente.</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Champ lexical</h4>
+                    <div class="def">Ensemble de mots se rapportant a un meme theme dans un passage.</div>
+                    <div class="example">Champ lexical de la captivite : &laquo; cage &raquo;, &laquo; chaines &raquo;, &laquo; enclos &raquo;, &laquo; barreaux &raquo; — insiste sur la privation de liberte.</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Antithese</h4>
+                    <div class="def">Opposition forte entre deux termes ou deux idees dans une meme phrase.</div>
+                    <div class="example">&laquo; Majestueux en vol, grotesque a terre &raquo; — oppose la noblesse et l'humiliation de l'albatros.</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Hyperbole</h4>
+                    <div class="def">Exageration volontaire pour frapper l'imagination.</div>
+                    <div class="example">&laquo; Des millions de betes sacrifiees &raquo; — amplifie pour choquer et denoncer l'elevage industriel.</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Anaphore</h4>
+                    <div class="def">Repetition d'un meme mot ou groupe de mots en debut de phrase ou de vers.</div>
+                    <div class="example">&laquo; Il souffre. Il souffre comme nous. Il souffre plus que nous. &raquo; — martelement pour insister sur la douleur animale.</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Ironie</h4>
+                    <div class="def">Dire le contraire de ce que l'on pense, souvent pour critiquer.</div>
+                    <div class="example">Voltaire, parlant des cartesiens : &laquo; Quelle admirable sagesse de refuser la douleur a qui la manifeste si clairement ! &raquo;</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Gradation</h4>
+                    <div class="def">Enumeration de termes d'intensite croissante (ou decroissante).</div>
+                    <div class="example">&laquo; L'animal observe, comprend, ressent, souffre &raquo; — progression vers la reconnaissance de la sensibilite.</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Oxymore</h4>
+                    <div class="def">Association de deux termes contradictoires dans une meme expression.</div>
+                    <div class="example">&laquo; Cette bete humaine &raquo; — Zola unit l'animalite et l'humanite en une seule formule troublante.</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Allegorie</h4>
+                    <div class="def">Representation concrete d'une idee abstraite a travers un recit ou une image.</div>
+                    <div class="example">Orwell, La Ferme des animaux : les cochons representent les dictateurs, la ferme la societe.</div>
+                </div>
+                <div class="procede-card">
+                    <h4>Euphemisme</h4>
+                    <div class="def">Attenuation d'une realite dure pour la rendre plus acceptable.</div>
+                    <div class="example">&laquo; L'animal a ete endormi &raquo; pour &laquo; euthanasie &raquo; — dissimule la violence de l'acte.</div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="refs">
-        <h2>3. Support de Cours & Références</h2>
-        <p style="margin-bottom: 1rem;">Cliquez pour découvrir les œuvres du corpus.</p>
+    <!-- TAB: Exemples commentes -->
+    <div class="tab-panel" id="commentaire-exemples">
+        <div class="container">
+            <h2 class="section-title">Exemples d'analyse commentee</h2>
 
-        <details>
-            <summary>📚 Littérature & Poésie</summary>
-            <div class="details-content">
-                <ul>
-                    <li><strong>Jean de La Fontaine (Fables) :</strong> Utilise l'animal pour instruire les hommes ("Le Loup et le Chien").</li>
-                    <li><strong>Baudelaire (Fleurs du Mal) :</strong> "Le Chat" ou "L'Albatros". L'animal symbolise le poète incompris ou le mystère.</li>
-                    <li><strong>Victor Hugo (Melancholia) :</strong> Dénonce la cruauté envers les animaux de trait, qui partagent la misère des hommes.</li>
-                    <li><strong>Émile Zola (Germinal) :</strong> Le cheval Trompette dans la mine, symbole de la souffrance ouvrière partagée.</li>
-                    <li><strong>Jacques Prévert :</strong> Donne la parole aux animaux (ex: cheval) pour qu'ils revendiquent leur liberté.</li>
-                    <li><strong>George Orwell (La Ferme des animaux) :</strong> Satire politique, critique des dictatures via l'allégorie animale.</li>
-                    <li><strong>Colette :</strong> Dialogue avec les bêtes, respect de leur individualité ("Je ne serais devenue muette...").</li>
-                </ul>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        Exemple 1 : Baudelaire, &laquo; L'Albatros &raquo; (extrait)
+                        <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <blockquote>
+                                &laquo; Souvent, pour s'amuser, les hommes d'equipage<br>
+                                Prennent des albatros, vastes oiseaux des mers,<br>
+                                Qui suivent, indolents compagnons de voyage,<br>
+                                Le navire glissant sur les gouffres amers. &raquo;
+                            </blockquote>
+                            <h4>Procedes reperes</h4>
+                            <ul>
+                                <li><strong>Personnification :</strong> &laquo; indolents compagnons de voyage &raquo; — l'albatros est presente comme un etre conscient, un compagnon, non une proie.</li>
+                                <li><strong>Antithese implicite :</strong> &laquo; pour s'amuser &raquo; vs la dignite de l'oiseau — oppose la legerete cruelle des hommes a la noblesse de l'animal.</li>
+                                <li><strong>Adjectif &laquo; vastes &raquo; :</strong> souligne l'envergure majestueuse de l'oiseau, qui contraste avec sa capture humiliante.</li>
+                                <li><strong>Metaphore :</strong> &laquo; gouffres amers &raquo; — l'ocean devient un abime, suggerant la profondeur et le danger.</li>
+                            </ul>
+                            <h4>Bon developpement</h4>
+                            <div class="model-text">
+                                Baudelaire ouvre le poeme par un tableau en apparence pittoresque : les marins capturent des albatros. Cependant, la personnification &laquo; indolents compagnons de voyage &raquo; eleve immediatement l'oiseau au rang de sujet. L'adjectif &laquo; vastes &raquo; traduit la majeste de l'albatros en plein vol, preparant le contraste cruel avec son humiliation a terre. L'expression &laquo; pour s'amuser &raquo; introduit une antithese morale entre la cruaute gratuite des hommes et la dignite innocente de l'animal. Des cette premiere strophe, Baudelaire installe une allegorie : l'albatros sera bientot le poete, et les marins la societe qui le ridiculise.
+                            </div>
+                            <h4>Mauvaise analyse (a eviter)</h4>
+                            <div class="bad-text">
+                                &laquo; Baudelaire parle d'un albatros qui se fait attraper par des marins sur un bateau. Les marins s'amusent avec l'oiseau. L'albatros est grand et il suit le bateau. &raquo;
+                            </div>
+                            <div class="correction">
+                                <strong>Pourquoi c'est mauvais :</strong> C'est de la paraphrase pure. Aucun procede n'est nomme, aucune interpretation n'est proposee. Le texte est reformule mais pas analyse.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        Exemple 2 : Voltaire, Dictionnaire philosophique, &laquo; Betes &raquo; (extrait)
+                        <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <blockquote>
+                                &laquo; Quelle pitie, quelle pauvrete d'avoir dit que les betes sont des machines privees de connaissance et de sentiment, qui font toujours leurs operations de la meme maniere, qui n'apprennent rien, ne perfectionnent rien ! &raquo;
+                            </blockquote>
+                            <h4>Procedes reperes</h4>
+                            <ul>
+                                <li><strong>Anaphore / Accumulation :</strong> &laquo; qui font... qui n'apprennent... ne perfectionnent &raquo; — enumeration qui mime ironiquement la rigidite qu'on prete aux animaux pour mieux la tourner en ridicule.</li>
+                                <li><strong>Exclamation rhetorique :</strong> &laquo; Quelle pitie, quelle pauvrete ! &raquo; — exprime l'indignation et le mepris envers la these cartesienne.</li>
+                                <li><strong>Ironie :</strong> Voltaire feint de rapporter la these adverse avec objectivite mais la torpille par le ton scandalise.</li>
+                            </ul>
+                            <h4>Bon developpement</h4>
+                            <div class="model-text">
+                                Voltaire emploie ici une strategie argumentative redoutable. L'exclamation initiale &laquo; Quelle pitie, quelle pauvrete &raquo; installe d'emblee un ton de mepris ironique qui disqualifie la these cartesienne avant meme de la refuter rationnellement. L'accumulation &laquo; qui font toujours... qui n'apprennent rien, ne perfectionnent rien &raquo; constitue une enumeration volontairement caricaturale : en poussant la logique mecaniste a l'absurde, Voltaire la rend intenable. Le lecteur, entraine par le rythme ternaire et l'indignation partagee, ne peut que rejoindre le philosophe dans son rejet de l'animal-machine. Le texte argumentatif devient ainsi une arme polemique au service de la reconnaissance de la sensibilite animale.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        Exemple 3 : La Fontaine, &laquo; Le Loup et l'Agneau &raquo; (extrait)
+                        <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <blockquote>
+                                &laquo; La raison du plus fort est toujours la meilleure :<br>
+                                Nous l'allons montrer tout a l'heure. &raquo;
+                            </blockquote>
+                            <h4>Procedes reperes</h4>
+                            <ul>
+                                <li><strong>Ironie :</strong> La &laquo; raison &raquo; est ici celle de la force brute, pas de la logique — La Fontaine detourne le mot pour denoncer l'injustice.</li>
+                                <li><strong>Maxime / Sentence :</strong> le vers prend la forme d'une verite generale, mais c'est une verite amere et cynique.</li>
+                                <li><strong>Adresse au lecteur :</strong> &laquo; Nous l'allons montrer &raquo; — complice du fabuliste, le lecteur est invite a observer la demonstration.</li>
+                            </ul>
+                            <h4>Bon developpement</h4>
+                            <div class="model-text">
+                                La Fontaine ouvre sa fable par une sentence cynique : &laquo; La raison du plus fort est toujours la meilleure. &raquo; Le mot &laquo; raison &raquo; est ici un oxymore conceptuel : il designe non pas la logique mais la loi du plus fort, c'est-a-dire l'absence meme de raison. Par cette ironie inaugurale, La Fontaine annonce que la fable ne sera pas un recit innocent mais une demonstration impitoyable de l'injustice sociale. Le loup et l'agneau incarnent une hierarchie ou la parole du faible — si juste soit-elle — est toujours ecrasee. L'animal n'est donc pas ici un pretexte decoratif : il est le revelateur le plus efficace de la violence des rapports humains.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </details>
-
-        <details>
-            <summary>🏛 Philosophie & Société</summary>
-            <div class="details-content">
-                <ul>
-                    <li><strong>La Bible (Genèse - Arche de Noé) :</strong> Préservation des espèces, responsabilité de l'homme envers la création.</li>
-                    <li><strong>Code Civil & Pénal :</strong> Évolution du statut de l'animal.
-                    De "bien meuble" à "être vivant doué de sensibilité" (Loi 1976, 2015).</li>
-                    <li><strong>Déclaration de Toulon (2019) :</strong> Proclamation de la personnalité juridique de l'animal (non plus une chose).</li>
-                    <li><strong>L'Antispécisme (Peter Singer) :</strong> Refus de la hiérarchie entre les espèces basée uniquement sur l'appartenance à l'humanité.</li>
-                </ul>
-            </div>
-        </details>
-
-        <details>
-            <summary>🎨 Arts & Cinéma</summary>
-            <div class="details-content">
-                <ul>
-                    <li><strong>Grotte de Lascaux :</strong> Premières représentations, fonction narrative ou magique.</li>
-                    <li><strong>Rosa Bonheur (Peinture) :</strong> Réalisme animalier ("Le Marché aux chevaux"). Elle peint l'âme de l'animal par son regard.</li>
-                    <li><strong>Cinéma (La Planète des Singes) :</strong> Renversement : l'homme devient l'animal de divertissement.</li>
-                    <li><strong>James Marsh (Le Projet Nim - Docu) :</strong> Expérience sur l'apprentissage du langage des signes par un chimpanzé, échec éthique.</li>
-                </ul>
-            </div>
-        </details>
-    </section>
-
-    <section id="bilan">
-        <h2>4. Tableau Bilan des Idées</h2>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Titre / Auteur</th>
-                        <th>Idée Défendue (Thèse)</th>
-                        <th>Liens / Oppositions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Descartes</strong><br>(Discours de la méthode)</td>
-                        <td><strong>Animal-Machine.</strong> Pas de pensée, pas de douleur consciente, pure mécanique.</td>
-                        <td>S'oppose à Voltaire, Rousseau, Bekoff.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Voltaire</strong><br>(Dictionnaire Philo)</td>
-                        <td><strong>Sensibilité.</strong> L'animal a des sens, il souffre, il ne doit pas être maltraité.</td>
-                        <td>Précurseur du droit animal moderne.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Rousseau</strong><br>(Discours inégalité)</td>
-                        <td><strong>Perfectibilité.</strong> L'animal a l'instinct (parfait mais figé), l'homme a la liberté (évolue).</td>
-                        <td>Nuance la position de Descartes.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Zola / Hugo</strong><br>(Germinal / Melancholia)</td>
-                        <td><strong>Compagnon de misère.</strong> L'animal de labeur est une victime du système, comme l'ouvrier.</td>
-                        <td>Lien social et affectif Homme-Animal.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Bekoff / Marsh</strong><br>(Éthologie)</td>
-                        <td><strong>Continuum.</strong> Pas de rupture nette. Intelligence, jeu et émotions existent chez l'animal.</td>
-                        <td>Confirme scientifiquement Voltaire.</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
-    </section>
+    </div>
 
-    <section id="quiz">
-        <h2>5. Testez vos connaissances</h2>
-        <div class="card">
-            <h3 id="question-text">Question 1 : Selon Descartes, quelle est la caractéristique principale de l'animal ?</h3>
-            <div id="options-container">
-                <div class="quiz-option" onclick="checkAnswer(this, true)">A. C'est une machine dépourvue de raison.</div>
-                <div class="quiz-option" onclick="checkAnswer(this, false)">B. C'est un être sensible égal à l'homme.</div>
-                <div class="quiz-option" onclick="checkAnswer(this, false)">C. Il possède une âme immortelle.</div>
+    <!-- TAB: Entrainement Commentaire -->
+    <div class="tab-panel" id="commentaire-entrainement">
+        <div class="container">
+            <h2 class="section-title">Quiz — Procedes et methode</h2>
+            <div class="quiz-container" id="quizCommContainer">
+                <div class="quiz-card">
+                    <div class="quiz-progress" id="quizCommProgress"></div>
+                    <h3 id="quizCommQuestion"></h3>
+                    <div id="quizCommOptions"></div>
+                    <div class="quiz-explain" id="quizCommExplain"></div>
+                    <button class="quiz-next" id="quizCommNext" onclick="nextQuizQuestion('comm')">Question suivante</button>
+                </div>
             </div>
-            <p id="feedback" style="margin-top: 1rem; font-weight: bold; min-height: 1.5rem;"></p>
+            <div class="quiz-score" id="quizCommScore" style="display:none;">
+                <h3>Quiz termine !</h3>
+                <div class="big-num" id="quizCommScoreNum"></div>
+                <p style="color:var(--ink-2);margin-top:0.5rem;" id="quizCommScoreText"></p>
+                <button class="random-btn" style="margin-top:1rem;background:var(--amber-600);" onclick="initQuiz('comm')">Recommencer</button>
+            </div>
+
+            <h2 class="section-title">Mini-exercice : retrouvez le procede</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        &laquo; Il rugissait comme un roi dechu, echoue dans une cage de fer. &raquo;
+                        <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <p><strong>Procedes :</strong></p>
+                            <ul>
+                                <li><strong>Comparaison</strong> : &laquo; comme un roi dechu &raquo; — rapproche le lion d'une figure royale, soulignant sa noblesse perdue.</li>
+                                <li><strong>Antithese</strong> : &laquo; roi &raquo; vs &laquo; cage &raquo; — oppose la grandeur originelle a la captivite.</li>
+                                <li><strong>Champ lexical de la decheance</strong> : &laquo; dechu &raquo;, &laquo; echoue &raquo;, &laquo; cage &raquo; — insiste sur la perte de liberte.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        &laquo; Les betes ne parlent pas, dit-on. Quel admirable silence que celui qui dit tout. &raquo;
+                        <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <p><strong>Procedes :</strong></p>
+                            <ul>
+                                <li><strong>Paradoxe / Oxymore conceptuel</strong> : &laquo; silence qui dit tout &raquo; — le silence animal est plus eloquent que la parole humaine.</li>
+                                <li><strong>Ironie</strong> : &laquo; dit-on &raquo; — distance critique avec l'opinion commune.</li>
+                                <li><strong>Antithese</strong> : &laquo; ne parlent pas &raquo; vs &laquo; dit tout &raquo; — renverse le prejuge de l'animal muet.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        &laquo; L'oiseau chante, le loup hurle, le chien gemit : toute la creation s'exprime, sauf l'homme qui se bouche les oreilles. &raquo;
+                        <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <p><strong>Procedes :</strong></p>
+                            <ul>
+                                <li><strong>Enumeration / Gradation</strong> : &laquo; chante, hurle, gemit &raquo; — progression dans l'intensite emotionnelle du cri animal.</li>
+                                <li><strong>Antithese finale</strong> : &laquo; toute la creation s'exprime, sauf l'homme &raquo; — renversement inattendu : c'est l'homme qui est sourd, pas l'animal qui est muet.</li>
+                                <li><strong>Hyperbole</strong> : &laquo; toute la creation &raquo; — generalise pour amplifier le propos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</main>
 
-    <footer>
-        <p>Créé avec l'assistance de Gemini • Basé sur le corpus "Imaginer, connaître, comprendre l'animal"</p>
-    </footer>
+<!-- ══════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════ -->
+<footer class="site-footer">
+    <p>Anima&Nous — Plateforme de revision BTS 2026<br>Theme : &laquo; Les animaux et nous : imaginer, connaitre, comprendre l'animal &raquo;</p>
+</footer>
 
-    <script>
-        // Simple Quiz Logic
-        const questions = [
-            {
-                q: "Selon Descartes, quelle est la caractéristique principale de l'animal ?",
-                options: ["C'est une machine dépourvue de raison", "C'est un être sensible", "Il a une culture"],
-                answer: 0,
-                cite: "Ref: Discours de la méthode"
-            },
-            {
-                q: "Quelle différence Rousseau fait-il entre l'homme et l'animal ?",
-                options: ["L'homme est plus fort", "L'homme a la liberté (perfectibilité), l'animal a l'instinct", "L'animal n'a pas de corps"],
-                answer: 1,
-                cite: "Ref: Discours sur l'origine de l'inégalité"
-            },
-            {
-                q: "Dans 'Germinal' de Zola, que représente le cheval Trompette ?",
-                options: ["Un animal sauvage dangereux", "Un compagnon de misère des mineurs", "Une divinité"],
-                answer: 1,
-                cite: "Ref: Germinal, Zola"
-            },
-            {
-                q: "Quel est le statut juridique actuel de l'animal dans le Code Civil (depuis 2015) ?",
-                options: ["Bien meuble", "Être vivant doué de sensibilité", "Personne humaine"],
-                answer: 1,
-                cite: "Ref: Code Civil / Loi 2015"
-            }
-        ];
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+     ══════════════════════════════════════════ -->
+<script>
+/* ═══ NAVIGATION ═══ */
+function showHero() {
+    document.getElementById('hero').style.display = '';
+    document.querySelectorAll('.main-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-pill').forEach(p => { p.classList.remove('active-green','active-amber'); });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-        let currentQuestion = 0;
+function showSection(name) {
+    document.getElementById('hero').style.display = 'none';
+    document.querySelectorAll('.main-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-pill').forEach(p => { p.classList.remove('active-green','active-amber'); });
 
-        function loadQuestion() {
-            const q = questions[currentQuestion];
-            document.getElementById('question-text').innerText = `Question ${currentQuestion + 1} : ${q.q}`;
-            const container = document.getElementById('options-container');
-            container.innerHTML = '';
+    if (name === 'expression') {
+        document.getElementById('sectionExpression').classList.add('active');
+        document.getElementById('navExpr').classList.add('active-green');
+    } else {
+        document.getElementById('sectionCommentaire').classList.add('active');
+        document.getElementById('navComm').classList.add('active-amber');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-            q.options.forEach((opt, index) => {
-                const div = document.createElement('div');
-                div.className = 'quiz-option';
-                div.innerText = opt;
-                div.onclick = () => checkAnswer(div, index === q.answer, q.cite);
-                container.appendChild(div);
-            });
-            document.getElementById('feedback').innerText = '';
+function showTab(section, tab, btn) {
+    const prefix = section === 'expression' ? 'expression' : 'commentaire';
+    const activeClass = section === 'expression' ? 'active-green' : 'active-amber';
+    const parent = btn.closest('.tab-bar');
+    parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active-green','active-amber'));
+    btn.classList.add(activeClass);
+
+    const container = btn.closest('.main-section');
+    container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(prefix + '-' + tab).classList.add('active');
+}
+
+/* Mobile */
+function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+/* Nav scroll */
+window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ═══ ACCORDION ═══ */
+function toggleAccordion(trigger) {
+    const body = trigger.nextElementSibling;
+    const isOpen = trigger.classList.contains('open');
+    trigger.classList.toggle('open');
+    if (isOpen) {
+        body.style.maxHeight = null;
+    } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+    }
+}
+
+/* ═══ REFERENCE DETAILS ═══ */
+function toggleRefDetail(btn) {
+    const detail = btn.nextElementSibling;
+    btn.classList.toggle('open');
+    detail.classList.toggle('open');
+}
+
+/* ═══ REFERENCE FILTERS ═══ */
+function filterRefs(cat, chip) {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    document.querySelectorAll('.ref-card').forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
         }
+    });
+}
 
-        function checkAnswer(element, isCorrect, citation) {
-            // Disable clicks
-            const opts = document.querySelectorAll('.quiz-option');
-            opts.forEach(o => o.onclick = null);
+/* ═══ RANDOM SUBJECT ═══ */
+const subjects = [
+    "L'homme se revele-t-il vraiment a travers son rapport aux animaux ?",
+    "Peut-on aimer un animal comme on aime un etre humain ?",
+    "La souffrance animale est-elle une preoccupation uniquement moderne ?",
+    "L'animal est-il un objet de connaissance ou un objet d'imaginaire ?",
+    "Qu'apprend-on sur soi-meme en observant les animaux ?",
+    "La frontiere entre l'homme et l'animal est-elle aussi nette qu'on le pense ?",
+    "L'animal sauvage fascine-t-il encore l'homme contemporain ?",
+    "Domestiquer un animal, est-ce le comprendre ou le trahir ?",
+    "La litterature change-t-elle notre regard sur les animaux ?",
+    "Avons-nous des devoirs envers les animaux ?"
+];
+let lastSubjectIdx = -1;
+function randomSubject() {
+    let idx;
+    do { idx = Math.floor(Math.random() * subjects.length); } while (idx === lastSubjectIdx);
+    lastSubjectIdx = idx;
+    const el = document.getElementById('randomSubjectText');
+    el.style.opacity = 0;
+    setTimeout(() => {
+        el.textContent = subjects[idx];
+        el.style.opacity = 1;
+    }, 200);
+}
 
-            if(isCorrect) {
-                element.classList.add('correct');
-                document.getElementById('feedback').style.color = 'green';
-                document.getElementById('feedback').innerText = "Correct ! " + citation;
-            } else {
-                element.classList.add('wrong');
-                document.getElementById('feedback').style.color = 'red';
-                document.getElementById('feedback').innerText = "Faux. Regardez bien les documents.";
-                // Highlight correct one
-                opts[questions[currentQuestion].answer].classList.add('correct');
-            }
+/* ═══ QUIZ ENGINE ═══ */
+const quizDataExpr = [
+    {
+        q: "Selon Descartes, quelle est la nature de l'animal ?",
+        opts: ["Un etre sensible egal a l'homme", "Une machine depourvue de raison et d'ame", "Un etre dote de langage mais pas de raison"],
+        answer: 1,
+        explain: "Pour Descartes, l'animal est un automate. Il agit par la disposition mecanique de ses organes, sans conscience ni pensee. (Discours de la methode, 1637)"
+    },
+    {
+        q: "Quel philosophe a ecrit : 'Quand je me joue a ma chatte, qui sait si elle passe son temps de moi plus que je ne fais d'elle ?' ?",
+        opts: ["Voltaire", "Rousseau", "Montaigne"],
+        answer: 2,
+        explain: "C'est Montaigne, dans l'Apologie de Raymond Sebond (Essais, 1580). Il relativise la superiorite humaine en suggerant que l'animal aussi nous observe et nous juge."
+    },
+    {
+        q: "Dans 'Germinal' de Zola, que symbolise le cheval Trompette ?",
+        opts: ["La liberte de la nature sauvage", "La compagnon de misere des mineurs exploites", "L'intelligence superieure de l'animal"],
+        answer: 1,
+        explain: "Trompette partage le destin des mineurs dans les profondeurs de la mine. Sa mort provoque les larmes des ouvriers : l'animal est un compagnon d'infortune."
+    },
+    {
+        q: "Peter Singer est le fondateur de quel mouvement philosophique ?",
+        opts: ["Le veganisme politique", "L'antispécisme", "L'ecologie profonde"],
+        answer: 1,
+        explain: "Dans La Liberation animale (1975), Singer soutient que la capacite a souffrir, et non l'appartenance a une espece, devrait etre le critere moral fondamental."
+    },
+    {
+        q: "Quel auteur a utilise l'allegorie animale pour denoncer le totalitarisme ?",
+        opts: ["Kafka", "Orwell", "La Fontaine"],
+        answer: 1,
+        explain: "Dans La Ferme des animaux (1945), Orwell fait des animaux les acteurs d'une revolution qui reproduit les travers du stalinisme. 'Tous les animaux sont egaux, mais certains sont plus egaux que d'autres.'"
+    },
+    {
+        q: "Chez Baudelaire, l'albatros symbolise...",
+        opts: ["La liberte sauvage de la nature", "Le poete, majestueux en creation mais inadapte a la societe", "La souffrance des animaux marins"],
+        answer: 1,
+        explain: "L'albatros, 'prince des nuees', est ridiculise quand il est pose a terre parmi les marins. Baudelaire en fait la metaphore du poete incompris par la societe."
+    },
+    {
+        q: "Quel est le statut juridique de l'animal en France depuis 2015 ?",
+        opts: ["Personne juridique a part entiere", "Etre vivant doue de sensibilite", "Bien meuble soumis au droit de propriete"],
+        answer: 1,
+        explain: "Le Code civil reconnait depuis 2015 que les animaux sont des 'etres vivants doues de sensibilite', et non plus de simples biens meubles."
+    },
+    {
+        q: "Pourquoi Kafka est-il considere comme une reference 'originale' dans une copie de BTS ?",
+        opts: ["Parce qu'il ecrit en allemand", "Parce que La Metamorphose brouille la frontiere homme/animal de maniere profonde et peu attendue", "Parce qu'il defend les droits des animaux"],
+        answer: 1,
+        explain: "Kafka est rarement cite par les candidats. La Metamorphose questionne l'identite, l'exclusion et la frontiere homme/animal a travers la transformation de Gregor en insecte."
+    }
+];
 
-            // Next question delay
-            setTimeout(() => {
-                currentQuestion++;
-                if(currentQuestion < questions.length) {
-                    loadQuestion();
-                } else {
-                    document.getElementById('question-text').innerText = "Bravo ! Vous avez terminé le quiz.";
-                    document.getElementById('options-container').innerHTML = '';
-                    document.getElementById('feedback').innerText = "Révisez le tableau bilan pour parfaire vos connaissances.";
-                }
-            }, 2500);
-        }
+const quizDataComm = [
+    {
+        q: "Dans 'Ce prince des nuees', quel procede Baudelaire utilise-t-il ?",
+        opts: ["Une comparaison", "Une metaphore", "Une hyperbole"],
+        answer: 1,
+        explain: "C'est une metaphore : l'albatros est directement designe comme 'prince' sans outil de comparaison (pas de 'comme'). L'image eleve l'oiseau au rang royal."
+    },
+    {
+        q: "Qu'est-ce que la paraphrase, et pourquoi faut-il l'eviter ?",
+        opts: [
+            "C'est reformuler le texte sans l'analyser — cela ne montre aucune competence d'interpretation",
+            "C'est citer trop de passages du texte — cela allonge inutilement la copie",
+            "C'est donner son opinion personnelle — c'est hors-sujet"
+        ],
+        answer: 0,
+        explain: "La paraphrase consiste a redire ce que dit le texte avec d'autres mots, sans identifier de procedes ni proposer d'interpretation. C'est l'erreur la plus frequente et la plus penalisee."
+    },
+    {
+        q: "Quel est l'ordre correct pour analyser un procede ?",
+        opts: [
+            "Interpretation → Citation → Nom du procede",
+            "Citation → Nom du procede → Effet / Interpretation",
+            "Nom du procede → Effet → Citation"
+        ],
+        answer: 1,
+        explain: "La methode la plus efficace : citer d'abord, nommer le procede, puis expliquer l'effet produit. C'est la structure Citation → Procede → Interpretation."
+    },
+    {
+        q: "'Quelle pitie, quelle pauvrete !' chez Voltaire est un exemple de...",
+        opts: ["Euphemisme", "Exclamation rhetorique exprimant l'indignation", "Gradation ascendante"],
+        answer: 1,
+        explain: "L'exclamation rhetorique traduit l'indignation de Voltaire face a la these cartesienne. Le ton scandalise disqualifie l'adversaire avant meme l'argumentation rationnelle."
+    },
+    {
+        q: "Quand La Fontaine ecrit 'La raison du plus fort est toujours la meilleure', le mot 'raison' est...",
+        opts: ["Utilise au sens propre (logique, bon sens)", "Ironique : il designe en realite la force brute", "Un euphemisme pour la violence"],
+        answer: 1,
+        explain: "Le mot 'raison' est detourne ironiquement. La Fontaine oppose le sens noble du mot (logique) a la realite qu'il designe ici : la loi du plus fort, c'est-a-dire l'absence de raison."
+    },
+    {
+        q: "'L'animal observe, comprend, ressent, souffre' est un exemple de...",
+        opts: ["Anaphore", "Gradation ascendante", "Personnification"],
+        answer: 1,
+        explain: "Les verbes sont places dans un ordre d'intensite croissante (observer → comprendre → ressentir → souffrir). C'est une gradation qui conduit le lecteur vers la reconnaissance de la sensibilite animale."
+    },
+    {
+        q: "Que doit obligatoirement contenir l'introduction d'un commentaire ?",
+        opts: [
+            "Un resume complet du texte et une opinion personnelle",
+            "La presentation de l'auteur/texte, le theme, et l'annonce des axes d'analyse",
+            "Une citation celebre et un rappel du cours"
+        ],
+        answer: 1,
+        explain: "L'introduction situe le texte (auteur, oeuvre, contexte), identifie le theme et annonce les axes du commentaire. Pas de resume ni d'opinion personnelle."
+    }
+];
 
-        // Initialize Quiz
-        loadQuestion();
+let quizState = {
+    expr: { current: 0, score: 0, answered: false },
+    comm: { current: 0, score: 0, answered: false }
+};
 
-        // Smooth scroll for nav links (optional fix for older browsers)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+function initQuiz(type) {
+    quizState[type] = { current: 0, score: 0, answered: false };
+    const data = type === 'expr' ? quizDataExpr : quizDataComm;
+    const prefix = type === 'expr' ? 'quizExpr' : 'quizComm';
+    document.getElementById(prefix + 'Score').style.display = 'none';
+    document.getElementById(prefix + 'Container').style.display = '';
+    renderQuizQuestion(type);
+}
+
+function renderQuizQuestion(type) {
+    const data = type === 'expr' ? quizDataExpr : quizDataComm;
+    const state = quizState[type];
+    const prefix = type === 'expr' ? 'quizExpr' : 'quizComm';
+    const q = data[state.current];
+
+    // Progress dots
+    let dots = '';
+    for (let i = 0; i < data.length; i++) {
+        let cls = 'quiz-dot';
+        if (i < state.current) cls += ' done';
+        else if (i === state.current) cls += ' current';
+        dots += `<div class="${cls}"></div>`;
+    }
+    document.getElementById(prefix + 'Progress').innerHTML = dots;
+
+    document.getElementById(prefix + 'Question').textContent = `Question ${state.current + 1}/${data.length} — ${q.q}`;
+
+    let optsHtml = '';
+    q.opts.forEach((opt, i) => {
+        optsHtml += `<button class="quiz-option" onclick="answerQuiz('${type}', ${i})">${opt}</button>`;
+    });
+    document.getElementById(prefix + 'Options').innerHTML = optsHtml;
+    document.getElementById(prefix + 'Explain').className = 'quiz-explain';
+    document.getElementById(prefix + 'Explain').textContent = '';
+    document.getElementById(prefix + 'Next').classList.remove('show');
+    state.answered = false;
+}
+
+function answerQuiz(type, idx) {
+    const data = type === 'expr' ? quizDataExpr : quizDataComm;
+    const state = quizState[type];
+    if (state.answered) return;
+    state.answered = true;
+
+    const prefix = type === 'expr' ? 'quizExpr' : 'quizComm';
+    const q = data[state.current];
+    const btns = document.getElementById(prefix + 'Options').querySelectorAll('.quiz-option');
+
+    btns.forEach((b, i) => {
+        b.disabled = true;
+        if (i === q.answer) b.classList.add('correct');
+        if (i === idx && idx !== q.answer) b.classList.add('wrong');
+    });
+
+    const explain = document.getElementById(prefix + 'Explain');
+    explain.textContent = q.explain;
+    if (idx === q.answer) {
+        state.score++;
+        explain.className = 'quiz-explain show correct-bg';
+    } else {
+        explain.className = 'quiz-explain show wrong-bg';
+    }
+
+    document.getElementById(prefix + 'Next').classList.add('show');
+}
+
+function nextQuizQuestion(type) {
+    const data = type === 'expr' ? quizDataExpr : quizDataComm;
+    const state = quizState[type];
+    state.current++;
+    if (state.current < data.length) {
+        renderQuizQuestion(type);
+    } else {
+        showQuizScore(type);
+    }
+}
+
+function showQuizScore(type) {
+    const data = type === 'expr' ? quizDataExpr : quizDataComm;
+    const state = quizState[type];
+    const prefix = type === 'expr' ? 'quizExpr' : 'quizComm';
+    document.getElementById(prefix + 'Container').style.display = 'none';
+    const scoreDiv = document.getElementById(prefix + 'Score');
+    scoreDiv.style.display = '';
+    document.getElementById(prefix + 'ScoreNum').textContent = state.score + '/' + data.length;
+    const pct = Math.round(state.score / data.length * 100);
+    let msg = pct >= 80 ? 'Excellent ! Vous maitrisez bien le sujet.' :
+              pct >= 50 ? 'Pas mal ! Revisez les fiches pour progresser.' :
+              'Continuez a reviser, vous progresserez vite !';
+    document.getElementById(prefix + 'ScoreText').textContent = msg;
+}
+
+/* ═══ FLASHCARDS ═══ */
+const flashcards = [
+    { front: "Descartes", sub: "Discours de la methode (1637)", back: "<strong>Animal-machine.</strong> L'animal est un automate sans ame ni raison. A utiliser comme point de depart critique pour montrer l'evolution des idees. S'oppose a Voltaire et Montaigne." },
+    { front: "Montaigne", sub: "Essais — Apologie de R. Sebond (1580)", back: "<strong>Relativisme.</strong> L'homme est presomptueux de se croire superieur. 'Quand je me joue a ma chatte...' Reference originale pour relativiser la hierarchie homme/animal." },
+    { front: "Voltaire", sub: "Dictionnaire philosophique (1764)", back: "<strong>Sensibilite.</strong> L'animal souffre, ses organes le prouvent. Critique feroce de Descartes. Precurseur du droit animal moderne. Ideal pour defendre la dignite animale." },
+    { front: "Rousseau", sub: "Discours sur l'inegalite (1755)", back: "<strong>Perfectibilite vs Instinct.</strong> L'animal est guide par l'instinct (parfait mais fige), l'homme par la liberte. Mais Rousseau reconnait aussi la pitie naturelle de l'animal." },
+    { front: "La Fontaine", sub: "Fables (1668-1694)", back: "<strong>Miroir de l'homme.</strong> L'animal incarne les vices humains. Le Loup = tyrannie, le Renard = ruse. Reference incontournable pour l'animal comme figure symbolique." },
+    { front: "Zola", sub: "Germinal (1885)", back: "<strong>Compagnon de misere.</strong> Le cheval Trompette partage le destin des mineurs. Sa mort provoque les larmes. L'animal exploite comme l'homme. Ideal pour souffrance/empathie." },
+    { front: "Kafka", sub: "La Metamorphose (1915)", back: "<strong>Frontiere brouilee.</strong> Gregor devient insecte mais garde sa conscience. La deshumanisation vient du regard des autres. Reference originale, peu utilisee par les candidats." },
+    { front: "Peter Singer", sub: "La Liberation animale (1975)", back: "<strong>Antispécisme.</strong> La capacite a souffrir est le seul critere moral. Refus de la hierarchie entre especes. Puissant mais radical : a nuancer dans la copie." },
+    { front: "Orwell", sub: "La Ferme des animaux (1945)", back: "<strong>Allegorie politique.</strong> Les animaux reproduisent la tyrannie humaine. 'Tous egaux, mais certains plus egaux.' Attention : reference courante, allez au-dela du resume." },
+    { front: "Darwin", sub: "L'Expression des emotions (1872)", back: "<strong>Continuum evolutif.</strong> Emotions partagees entre homme et animal. Caution scientifique de Montaigne et Voltaire. Detruit l'idee d'une rupture nette." },
+    { front: "Colette", sub: "Dialogues de betes (1904)", back: "<strong>Subjectivite animale.</strong> L'animal est un sujet a part entiere, observe avec respect et attention. Reference rarement citee = plus-value dans la copie." },
+    { front: "Frans de Waal", sub: "L'Age de l'empathie (2009)", back: "<strong>Empathie animale.</strong> Les primates consolent, cooperent, negocient. Preuves scientifiques de ce que la philosophie pressentait. Reference originale et moderne." }
+];
+
+let flashIdx = 0;
+function renderFlashcard() {
+    const card = flashcards[flashIdx];
+    document.getElementById('flashFrontTitle').textContent = card.front;
+    document.getElementById('flashFrontSub').textContent = card.sub;
+    document.getElementById('flashBackText').innerHTML = card.back;
+    document.getElementById('flashCounter').textContent = (flashIdx + 1) + ' / ' + flashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+function nextFlashcard() {
+    flashIdx = (flashIdx + 1) % flashcards.length;
+    renderFlashcard();
+}
+function prevFlashcard() {
+    flashIdx = (flashIdx - 1 + flashcards.length) % flashcards.length;
+    renderFlashcard();
+}
+
+/* ═══ INIT ═══ */
+document.addEventListener('DOMContentLoaded', () => {
+    initQuiz('expr');
+    initQuiz('comm');
+    renderFlashcard();
+});
+</script>
 </body>
 </html>
