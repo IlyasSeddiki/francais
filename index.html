@@ -669,7 +669,7 @@ blockquote {
         <div class="nav-center">
             <button class="nav-home" onclick="showHero()">Accueil</button>
             <button class="nav-pill" id="navExpr" onclick="showSection('expression')">Expression Ecrite</button>
-            <button class="nav-pill" id="navComm" onclick="showSection('commentaire')">Commentaire de Texte</button>
+            <button class="nav-pill" id="navComm" onclick="showSection('commentaire')">Questions sur corpus</button>
         </div>
         <div class="nav-burger" onclick="toggleMobile()">
             <span></span><span></span><span></span>
@@ -680,7 +680,7 @@ blockquote {
 <div class="mobile-menu" id="mobileMenu">
     <button onclick="showHero(); closeMobile()">Accueil</button>
     <button onclick="showSection('expression'); closeMobile()">Expression Ecrite</button>
-    <button onclick="showSection('commentaire'); closeMobile()">Commentaire de Texte</button>
+    <button onclick="showSection('commentaire'); closeMobile()">Questions sur corpus</button>
 </div>
 
 <!-- ══════════════════════════════════════════
@@ -699,8 +699,8 @@ blockquote {
         </div>
         <div class="hero-card amber" onclick="showSection('commentaire')">
             <div class="hero-card-num">Partie 2</div>
-            <h2>Commentaire de Texte</h2>
-            <p>Methode d'analyse, procedes, exemples commentes, exercices.</p>
+            <h2>Questions sur corpus</h2>
+            <p>Methode, types de questions, reponses modeles et entrainement.</p>
             <div class="arrow">&#8594;</div>
         </div>
     </div>
@@ -1665,89 +1665,129 @@ blockquote {
      ══════════════════════════════════════════ -->
 <main class="main-section" id="sectionCommentaire">
     <div class="section-header amber">
-        <h1>Commentaire de Texte</h1>
-        <p>Methode d'analyse pas a pas, procedes litteraires, exemples commentes et exercices pratiques.</p>
+        <h1>Questions sur corpus</h1>
+        <p>Methode pas a pas, types de questions, reponses modeles et exercices pratiques pour la premiere partie de l'examen.</p>
     </div>
 
     <div class="tab-bar">
         <button class="tab-btn active-amber" onclick="showTab('commentaire','methode',this)">Methode</button>
-        <button class="tab-btn" onclick="showTab('commentaire','procedes',this)">Procedes</button>
-        <button class="tab-btn" onclick="showTab('commentaire','exemples',this)">Exemples commentes</button>
+        <button class="tab-btn" onclick="showTab('commentaire','procedes',this)">Types de questions</button>
+        <button class="tab-btn" onclick="showTab('commentaire','exemples',this)">Reponses modeles</button>
         <button class="tab-btn" onclick="showTab('commentaire','entrainement',this)">Entrainement</button>
     </div>
 
-    <!-- TAB: Methode Commentaire -->
+    <!-- TAB: Methode Questions sur corpus -->
     <div class="tab-panel active" id="commentaire-methode">
         <div class="container">
-            <h2 class="section-title">Les 7 etapes du commentaire de texte</h2>
+            <h2 class="section-title">Les 8 etapes pour repondre aux questions sur corpus</h2>
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-num amber">1</div>
-                    <h3>Premiere lecture</h3>
-                    <p>Lisez le texte entierement, sans chercher de procedes. Notez vos <strong>impressions generales</strong> : quel est le ton ? Quelle emotion se degage ? De quoi parle le texte ?</p>
+                    <h3>Lire les questions en premier</h3>
+                    <p>Avant de lire les documents, prenez connaissance de <strong>toutes les questions</strong>. Cela oriente votre lecture et permet de reperer les informations pertinentes des le premier passage.</p>
+                    <ul>
+                        <li>Identifiez ce que chaque question demande exactement</li>
+                        <li>Notez les documents cites dans chaque question</li>
+                        <li>Reperez les verbes d'instruction (analysez, comparez, degagez...)</li>
+                    </ul>
                 </div>
                 <div class="step-card">
                     <div class="step-num amber">2</div>
-                    <h3>Identifier le texte</h3>
-                    <p>Determinez : <strong>auteur, oeuvre, date, genre</strong> (poeme, essai, recit, discours). Puis identifiez le <strong>theme precis</strong> en lien avec &laquo; les animaux et nous &raquo;.</p>
+                    <h3>Lire et annoter le corpus</h3>
+                    <p>Lisez chaque document en annotant les passages importants. Identifiez la <strong>these de chaque auteur</strong>, le ton adopte et les arguments principaux.</p>
+                    <ul>
+                        <li>Numerotez ou marquez les passages cles</li>
+                        <li>Notez brievement la these de chaque document</li>
+                        <li>Reperez les mots-cles lies au theme des animaux</li>
+                    </ul>
                 </div>
                 <div class="step-card">
                     <div class="step-num amber">3</div>
-                    <h3>Reperer la these ou l'intention</h3>
-                    <p>Quel est le <strong>message central</strong> ? Que veut dire l'auteur a propos de l'animal ? Defend-il une these ? Denonce-t-il quelque chose ? Exprime-t-il une emotion ?</p>
+                    <h3>Delimiter precisement la question</h3>
+                    <p>Chaque question a un perimetre precis. Ne repondez ni trop large (hors-sujet) ni trop etroit (incomplet). Reformulez la question avec vos propres mots avant de repondre.</p>
+                    <ul>
+                        <li>Identifiez les documents a mobiliser</li>
+                        <li>Reperez si on demande de comparer, d'analyser ou de synthetiser</li>
+                        <li>Ne melangez pas les reponses a des questions differentes</li>
+                    </ul>
                 </div>
                 <div class="step-card">
                     <div class="step-num amber">4</div>
-                    <h3>Reperer les procedes d'ecriture</h3>
-                    <p>Soulignez les figures de style, les champs lexicaux, les effets de rythme, la ponctuation remarquable. Chaque procede doit etre <strong>nomme, cite et interprete</strong>.</p>
+                    <h3>Construire une reponse structuree</h3>
+                    <p>Meme pour une reponse courte, un minimum de structure s'impose :</p>
+                    <ul>
+                        <li><strong>Phrase introductive</strong> : reformulation rapide de la question</li>
+                        <li><strong>Developpement</strong> : reponse argumentee avec citations</li>
+                        <li><strong>Phrase de cloture</strong> : bilan ou nuance</li>
+                    </ul>
                 </div>
                 <div class="step-card">
                     <div class="step-num amber">5</div>
-                    <h3>Organiser par axes</h3>
-                    <p>Regroupez vos observations en <strong>2 ou 3 axes d'analyse</strong> thematiques. Ne commentez pas le texte ligne par ligne, mais par idees directrices.</p>
+                    <h3>Citer les documents avec precision</h3>
+                    <p>Toute affirmation doit etre appuyee par une reference precise au corpus. La citation montre que vous avez <strong>compris</strong> le document, pas seulement lu le titre.</p>
+                    <ul>
+                        <li>Indiquez l'auteur et le numero du document</li>
+                        <li>Citez entre guillemets les passages exacts</li>
+                        <li>Paraphrasez si la citation est trop longue, en precisant la source</li>
+                    </ul>
                 </div>
                 <div class="step-card">
                     <div class="step-num amber">6</div>
-                    <h3>Rediger le commentaire</h3>
-                    <p>Pour chaque axe, suivez le schema : <strong>idee &rarr; citation &rarr; analyse du procede &rarr; interpretation</strong>. C'est cette derniere etape qui distingue une bonne copie.</p>
+                    <h3>Argumenter avec nuance</h3>
+                    <p>Une bonne reponse ne se contente pas de reproduire le document. Elle <strong>interprete, nuance et met en perspective</strong>. Le correcteur cherche une pensee, pas un resume.</p>
+                    <ul>
+                        <li>Confrontez les points de vue des differents auteurs</li>
+                        <li>Signalez les convergences et les divergences</li>
+                        <li>Apportez un regard critique sans s'eloigner du corpus</li>
+                    </ul>
                 </div>
                 <div class="step-card">
                     <div class="step-num amber">7</div>
-                    <h3>Introduction et conclusion</h3>
-                    <p><strong>Intro :</strong> presenter l'auteur, le texte, le theme, annoncer les axes. <strong>Conclusion :</strong> bilan de l'analyse + ouverture vers un autre texte ou une question plus large.</p>
+                    <h3>Calibrer la longueur</h3>
+                    <p>La longueur de la reponse doit etre <strong>proportionnelle au bareme</strong> et a la complexite de la question.</p>
+                    <ul>
+                        <li>Question de comprehension simple : 5&ndash;8 lignes</li>
+                        <li>Question d'analyse : 10&ndash;15 lignes</li>
+                        <li>Question de comparaison : 15&ndash;20 lignes</li>
+                    </ul>
+                </div>
+                <div class="step-card">
+                    <div class="step-num amber">8</div>
+                    <h3>Relire chaque reponse</h3>
+                    <p>Verifiez que votre reponse repond exactement a ce qui est demande. Eliminez les hors-sujets, corrigez l'orthographe et soignez la formulation.</p>
+                    <ul>
+                        <li>Relisez en vous posant : &laquo; Ai-je repondu a la question ? &raquo;</li>
+                        <li>Assurez-vous d'avoir cite au moins un document par reponse</li>
+                        <li>Verifiez accords et conjugaisons</li>
+                    </ul>
                 </div>
             </div>
 
-            <h2 class="section-title">La formule magique du paragraphe d'analyse</h2>
             <div class="tip-box amber">
                 <span class="tip-icon">&#9733;</span>
-                <div>
-                    <strong>Citation &rarr; Procede &rarr; Effet / Interpretation</strong><br>
-                    C'est la structure que chaque paragraphe doit suivre. Exemple :<br>
-                    <em>&laquo; Le poete compare l'albatros a un "prince des nuees" (metaphore). Cette image royale souligne la noblesse naturelle de l'oiseau et, par extension, celle du poete incompris par la societe. &raquo;</em>
-                </div>
+                <div><strong>Conseil de correcteur :</strong> La reponse aux questions n'est pas un resume du document. Le correcteur sait ce que les documents disent. Ce qu'il evalue, c'est votre capacite a lire avec precision, a mettre en relation et a argumenter. Montrez que vous pensez.</div>
             </div>
 
-            <h2 class="section-title">A faire / A ne pas faire</h2>
+            <h2 class="section-title">Erreurs frequentes a eviter</h2>
             <div class="do-dont">
                 <div class="do-col">
-                    <h4>Bon commentaire</h4>
+                    <h4>A faire</h4>
                     <ul>
-                        <li>Citer le texte entre guillemets</li>
-                        <li>Nommer le procede utilise</li>
-                        <li>Expliquer l'effet produit sur le lecteur</li>
-                        <li>Relier a l'intention de l'auteur</li>
-                        <li>Utiliser un vocabulaire d'analyse precis</li>
+                        <li>Citer les documents avec auteur et numero</li>
+                        <li>Repondre precisement a ce qui est demande</li>
+                        <li>Confronter les points de vue</li>
+                        <li>Structurer meme les reponses courtes</li>
+                        <li>Nuancer et interpreter</li>
                     </ul>
                 </div>
                 <div class="dont-col">
-                    <h4>Mauvais commentaire</h4>
+                    <h4>A ne pas faire</h4>
                     <ul>
-                        <li>Paraphraser : repeter ce que dit le texte sans analyser</li>
-                        <li>Lister les procedes sans les interpreter</li>
-                        <li>&laquo; L'auteur utilise une metaphore &raquo; (sans dire laquelle ni son effet)</li>
-                        <li>Donner son opinion personnelle (&laquo; J'ai aime ce texte &raquo;)</li>
-                        <li>Oublier de citer le texte</li>
+                        <li>Resumer les documents sans repondre a la question</li>
+                        <li>Confondre la these de l'auteur avec votre opinion</li>
+                        <li>Repondre sans citer les documents</li>
+                        <li>Ecrire des reponses trop longues ou trop courtes</li>
+                        <li>Melanger les reponses a differentes questions</li>
                     </ul>
                 </div>
             </div>
@@ -1755,124 +1795,132 @@ blockquote {
             <h2 class="section-title">Checklist de relecture</h2>
             <div class="card" style="max-width:600px;">
                 <ul style="list-style:none;">
-                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Mon intro presente l'auteur, le texte et annonce les axes</li>
-                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Chaque paragraphe contient au moins une citation</li>
-                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Chaque procede est nomme et interprete</li>
-                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Je ne fais pas de paraphrase</li>
-                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Mes transitions entre les axes sont fluides</li>
-                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Ma conclusion fait un bilan et une ouverture</li>
-                    <li style="padding:0.4rem 0;">&#9744; J'ai relu pour l'orthographe</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; J'ai lu toutes les questions avant les documents</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Chaque reponse cite au moins un document (auteur + numero)</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Je reponds exactement a ce qui est demande (ni plus, ni moins)</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; J'ai confronte les points de vue quand la question le demande</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; Mes citations sont entre guillemets avec source precise</li>
+                    <li style="padding:0.4rem 0; border-bottom:1px solid var(--border);">&#9744; La longueur est proportionnelle au bareme</li>
+                    <li style="padding:0.4rem 0;">&#9744; J'ai relu pour l'orthographe et la syntaxe</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- TAB: Procedes -->
+    <!-- TAB: Types de questions -->
     <div class="tab-panel" id="commentaire-procedes">
         <div class="container">
-            <h2 class="section-title">Glossaire des procedes litteraires</h2>
-            <p style="color:var(--ink-2);margin-bottom:1.5rem;font-size:0.92rem;">Chaque procede est illustre par un exemple en lien avec le theme des animaux.</p>
+            <h2 class="section-title">Les types de questions sur corpus</h2>
+            <p style="color:var(--ink-2);margin-bottom:1.5rem;font-size:0.92rem;">Reconnaitre le type de question vous aide a adopter immediatement la bonne strategie de reponse.</p>
             <div class="procede-grid">
                 <div class="procede-card">
-                    <h4>Metaphore</h4>
-                    <div class="def">Comparaison implicite (sans outil de comparaison) entre deux elements.</div>
-                    <div class="example">&laquo; Ce prince des nuees &raquo; — Baudelaire designe l'albatros, soulignant sa noblesse aerienne.</div>
+                    <h4>Question de comprehension</h4>
+                    <div class="def">On vous demande de degager la these ou le propos d'un document. Repondez clairement en vous appuyant sur des citations courtes.</div>
+                    <div class="example">Ex. : &laquo; Quelle vision de l'animal Descartes defend-il dans ce texte ? Justifiez votre reponse. &raquo;</div>
                 </div>
                 <div class="procede-card">
-                    <h4>Comparaison</h4>
-                    <div class="def">Rapprochement explicite entre deux elements, avec un outil (&laquo; comme &raquo;, &laquo; tel &raquo;, &laquo; semblable a &raquo;).</div>
-                    <div class="example">&laquo; L'homme agit comme le loup envers ses semblables &raquo; — rapprochement critique de la violence humaine et animale.</div>
+                    <h4>Question de comparaison</h4>
+                    <div class="def">On vous demande de confronter deux ou plusieurs documents. Identifiez les points d'accord, de divergence et les nuances entre les auteurs.</div>
+                    <div class="example">Ex. : &laquo; En quoi les documents 2 et 3 ont-ils des approches differentes de la souffrance animale ? &raquo;</div>
                 </div>
                 <div class="procede-card">
-                    <h4>Personnification</h4>
-                    <div class="def">Attribuer des qualites humaines a un animal ou un objet.</div>
-                    <div class="example">&laquo; Le cheval pleurait dans l'ombre &raquo; — Hugo prete a l'animal une souffrance consciente.</div>
+                    <h4>Question d'analyse</h4>
+                    <div class="def">On vous demande d'expliquer comment un auteur construit son argumentation : ton, procedes rhetoriques, structure du raisonnement.</div>
+                    <div class="example">Ex. : &laquo; Analysez les procedes par lesquels Voltaire defend la sensibilite animale dans ce texte. &raquo;</div>
                 </div>
                 <div class="procede-card">
-                    <h4>Champ lexical</h4>
-                    <div class="def">Ensemble de mots se rapportant a un meme theme dans un passage.</div>
-                    <div class="example">Champ lexical de la captivite : &laquo; cage &raquo;, &laquo; chaines &raquo;, &laquo; enclos &raquo;, &laquo; barreaux &raquo; — insiste sur la privation de liberte.</div>
+                    <h4>Question sur un extrait precis</h4>
+                    <div class="def">On vous demande d'expliquer ou de commenter un passage court. Montrez que vous en comprenez le sens et les enjeux dans le contexte du document.</div>
+                    <div class="example">Ex. : &laquo; Expliquez ce que Montaigne entend par 'presomption naturelle et originelle' dans ce passage. &raquo;</div>
                 </div>
                 <div class="procede-card">
-                    <h4>Antithese</h4>
-                    <div class="def">Opposition forte entre deux termes ou deux idees dans une meme phrase.</div>
-                    <div class="example">&laquo; Majestueux en vol, grotesque a terre &raquo; — oppose la noblesse et l'humiliation de l'albatros.</div>
+                    <h4>Question de synthese partielle</h4>
+                    <div class="def">On vous demande de regrouper les apports de plusieurs documents sur un point precis. Structurez votre reponse par idees, non par document.</div>
+                    <div class="example">Ex. : &laquo; D'apres l'ensemble du corpus, quelles sont les principales raisons de reconsiderer notre rapport aux animaux ? &raquo;</div>
                 </div>
                 <div class="procede-card">
-                    <h4>Hyperbole</h4>
-                    <div class="def">Exageration volontaire pour frapper l'imagination.</div>
-                    <div class="example">&laquo; Des millions de betes sacrifiees &raquo; — amplifie pour choquer et denoncer l'elevage industriel.</div>
+                    <h4>Question sur le contexte ou l'auteur</h4>
+                    <div class="def">On vous demande de situer un auteur, une oeuvre ou un courant de pensee. Reliez toujours les informations au propos du document.</div>
+                    <div class="example">Ex. : &laquo; En quoi le contexte des Lumieres eclaire-t-il la position de Voltaire dans ce texte ? &raquo;</div>
                 </div>
                 <div class="procede-card">
-                    <h4>Anaphore</h4>
-                    <div class="def">Repetition d'un meme mot ou groupe de mots en debut de phrase ou de vers.</div>
-                    <div class="example">&laquo; Il souffre. Il souffre comme nous. Il souffre plus que nous. &raquo; — martelement pour insister sur la douleur animale.</div>
+                    <h4>Question de prise de position</h4>
+                    <div class="def">On vous invite a defendre un point de vue nuance en vous appuyant sur le corpus. Ne donnez pas un avis brut : appuyez-vous sur les documents.</div>
+                    <div class="example">Ex. : &laquo; A partir de ce corpus, expliquez pourquoi la question du droit animal est aujourd'hui incontournable. &raquo;</div>
                 </div>
                 <div class="procede-card">
-                    <h4>Ironie</h4>
-                    <div class="def">Dire le contraire de ce que l'on pense, souvent pour critiquer.</div>
-                    <div class="example">Voltaire, parlant des cartesiens : &laquo; Quelle admirable sagesse de refuser la douleur a qui la manifeste si clairement ! &raquo;</div>
+                    <h4>Question sur un document non textuel</h4>
+                    <div class="def">Le corpus peut inclure une image, une affiche ou un tableau. Decrivez ce que vous voyez, puis interpretez en lien avec le theme et les autres documents.</div>
+                    <div class="example">Ex. : &laquo; Comment cette photographie illustre-t-elle le propos du document 3 sur l'exploitation animale ? &raquo;</div>
                 </div>
-                <div class="procede-card">
-                    <h4>Gradation</h4>
-                    <div class="def">Enumeration de termes d'intensite croissante (ou decroissante).</div>
-                    <div class="example">&laquo; L'animal observe, comprend, ressent, souffre &raquo; — progression vers la reconnaissance de la sensibilite.</div>
+            </div>
+
+            <div class="tip-box amber">
+                <span class="tip-icon">&#9733;</span>
+                <div><strong>Formules de reference aux documents :</strong> &laquo; Comme le montre l'auteur du document 2&hellip; &raquo; &mdash; &laquo; Selon [auteur] (doc. 1)&hellip; &raquo; &mdash; &laquo; Le document 4 illustre ce propos lorsque&hellip; &raquo; &mdash; &laquo; A l'inverse du doc. 3, [auteur] affirme que&hellip; &raquo;</div>
+            </div>
+
+            <h2 class="section-title">Connecteurs pour mettre les documents en relation</h2>
+            <div class="connectors-box">
+                <h4>Pour introduire un document</h4>
+                <div class="conn-grid">
+                    <div class="conn-item"><strong>Selon [auteur] (doc. X)</strong></div>
+                    <div class="conn-item"><strong>Comme le souligne [auteur]</strong></div>
+                    <div class="conn-item"><strong>Le document X montre que</strong></div>
                 </div>
-                <div class="procede-card">
-                    <h4>Oxymore</h4>
-                    <div class="def">Association de deux termes contradictoires dans une meme expression.</div>
-                    <div class="example">&laquo; Cette bete humaine &raquo; — Zola unit l'animalite et l'humanite en une seule formule troublante.</div>
+            </div>
+            <div class="connectors-box">
+                <h4>Pour comparer / opposer des documents</h4>
+                <div class="conn-grid">
+                    <div class="conn-item"><strong>A l'inverse du doc. X, [auteur]</strong></div>
+                    <div class="conn-item"><strong>Dans le meme sens, [auteur] (doc. X)</strong></div>
+                    <div class="conn-item"><strong>Si [auteur] affirme que&hellip;, [auteur] au contraire</strong></div>
+                    <div class="conn-item"><strong>Ces deux documents convergent sur</strong></div>
                 </div>
-                <div class="procede-card">
-                    <h4>Allegorie</h4>
-                    <div class="def">Representation concrete d'une idee abstraite a travers un recit ou une image.</div>
-                    <div class="example">Orwell, La Ferme des animaux : les cochons representent les dictateurs, la ferme la societe.</div>
-                </div>
-                <div class="procede-card">
-                    <h4>Euphemisme</h4>
-                    <div class="def">Attenuation d'une realite dure pour la rendre plus acceptable.</div>
-                    <div class="example">&laquo; L'animal a ete endormi &raquo; pour &laquo; euthanasie &raquo; — dissimule la violence de l'acte.</div>
+            </div>
+            <div class="connectors-box">
+                <h4>Pour nuancer et conclure</h4>
+                <div class="conn-grid">
+                    <div class="conn-item"><strong>Toutefois, il convient de nuancer</strong></div>
+                    <div class="conn-item"><strong>En definitive, le corpus montre que</strong></div>
+                    <div class="conn-item"><strong>Au-dela de cette opposition</strong></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- TAB: Exemples commentes -->
+    <!-- TAB: Reponses modeles -->
     <div class="tab-panel" id="commentaire-exemples">
         <div class="container">
-            <h2 class="section-title">Exemples d'analyse commentee</h2>
+            <h2 class="section-title">Exemples de reponses aux questions sur corpus</h2>
+            <p style="color:var(--ink-2);margin-bottom:1rem;font-size:0.92rem;">Pour chaque exemple : la question, ce qu'elle demande, une bonne reponse et les erreurs a eviter.</p>
 
             <div class="accordion">
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        Exemple 1 : Baudelaire, &laquo; L'Albatros &raquo; (extrait)
+                        Question 1 (comprehension + comparaison) : &laquo; Quelle conception de l'animal Descartes defend-il ? En quoi Voltaire s'y oppose-t-il ? &raquo;
                         <span class="chevron">&#9660;</span>
                     </button>
                     <div class="accordion-body">
                         <div class="accordion-body-inner">
-                            <blockquote>
-                                &laquo; Souvent, pour s'amuser, les hommes d'equipage<br>
-                                Prennent des albatros, vastes oiseaux des mers,<br>
-                                Qui suivent, indolents compagnons de voyage,<br>
-                                Le navire glissant sur les gouffres amers. &raquo;
-                            </blockquote>
-                            <h4>Procedes reperes</h4>
-                            <ul>
-                                <li><strong>Personnification :</strong> &laquo; indolents compagnons de voyage &raquo; — l'albatros est presente comme un etre conscient, un compagnon, non une proie.</li>
-                                <li><strong>Antithese implicite :</strong> &laquo; pour s'amuser &raquo; vs la dignite de l'oiseau — oppose la legerete cruelle des hommes a la noblesse de l'animal.</li>
-                                <li><strong>Adjectif &laquo; vastes &raquo; :</strong> souligne l'envergure majestueuse de l'oiseau, qui contraste avec sa capture humiliante.</li>
-                                <li><strong>Metaphore :</strong> &laquo; gouffres amers &raquo; — l'ocean devient un abime, suggerant la profondeur et le danger.</li>
-                            </ul>
-                            <h4>Bon developpement</h4>
+                            <h4>Ce que la question demande</h4>
+                            <p>Exposer clairement la position de chaque auteur, puis mettre en evidence leur desaccord. Il faut <strong>citer les deux documents</strong> et <strong>structurer par auteur</strong> avant de conclure sur l'opposition.</p>
+
+                            <h4>Bonne reponse modele</h4>
                             <div class="model-text">
-                                Baudelaire ouvre le poeme par un tableau en apparence pittoresque : les marins capturent des albatros. Cependant, la personnification &laquo; indolents compagnons de voyage &raquo; eleve immediatement l'oiseau au rang de sujet. L'adjectif &laquo; vastes &raquo; traduit la majeste de l'albatros en plein vol, preparant le contraste cruel avec son humiliation a terre. L'expression &laquo; pour s'amuser &raquo; introduit une antithese morale entre la cruaute gratuite des hommes et la dignite innocente de l'animal. Des cette premiere strophe, Baudelaire installe une allegorie : l'albatros sera bientot le poete, et les marins la societe qui le ridiculise.
+                                Pour Descartes (doc. 1), l'animal est un &laquo; automate &raquo; : une machine parfaite dont les comportements resultent uniquement de la disposition mecanique de ses organes. L'animal ne pense pas, ne ressent pas et ne possede aucune ame. Cette conception, qui nie toute interiorite a l'animal, a longtemps fonde la domination humaine sur le vivant.
+
+Voltaire s'oppose radicalement a cette these dans le Dictionnaire philosophique (doc. 2). Il souligne l'absurdite de nier la sensibilite animale alors que l'animal possede les memes organes sensoriels que l'homme : &laquo; Quelle pitie, quelle pauvrete d'avoir dit que les betes sont des machines ! &raquo; Son argumentation fondee sur l'observation empirique prefigure les avancees modernes du droit animal.
+
+Ainsi, la ou Descartes etablit une rupture absolue entre l'homme et l'animal, Voltaire reconnait une continuite fondee sur la souffrance partagee.
                             </div>
-                            <h4>Mauvaise analyse (a eviter)</h4>
+
+                            <h4>Mauvaise reponse (a eviter)</h4>
                             <div class="bad-text">
-                                &laquo; Baudelaire parle d'un albatros qui se fait attraper par des marins sur un bateau. Les marins s'amusent avec l'oiseau. L'albatros est grand et il suit le bateau. &raquo;
+                                &laquo; Descartes pense que les animaux sont des machines. Voltaire pense le contraire et qu'ils ont des sentiments. Ils ont donc des avis differents. &raquo;
                             </div>
                             <div class="correction">
-                                <strong>Pourquoi c'est mauvais :</strong> C'est de la paraphrase pure. Aucun procede n'est nomme, aucune interpretation n'est proposee. Le texte est reformule mais pas analyse.
+                                <strong>Pourquoi c'est insuffisant :</strong> La reponse ne cite aucun document, n'explique pas les arguments et se contente d'une opposition vague. Le correcteur evalue votre capacite a citer et interpreter, pas a resumer en deux phrases.
                             </div>
                         </div>
                     </div>
@@ -1880,23 +1928,21 @@ blockquote {
 
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        Exemple 2 : Voltaire, Dictionnaire philosophique, &laquo; Betes &raquo; (extrait)
+                        Question 2 (analyse) : &laquo; Degagez la these du document 3 et analysez les procedes qui la soutiennent. &raquo;
                         <span class="chevron">&#9660;</span>
                     </button>
                     <div class="accordion-body">
                         <div class="accordion-body-inner">
-                            <blockquote>
-                                &laquo; Quelle pitie, quelle pauvrete d'avoir dit que les betes sont des machines privees de connaissance et de sentiment, qui font toujours leurs operations de la meme maniere, qui n'apprennent rien, ne perfectionnent rien ! &raquo;
-                            </blockquote>
-                            <h4>Procedes reperes</h4>
-                            <ul>
-                                <li><strong>Anaphore / Accumulation :</strong> &laquo; qui font... qui n'apprennent... ne perfectionnent &raquo; — enumeration qui mime ironiquement la rigidite qu'on prete aux animaux pour mieux la tourner en ridicule.</li>
-                                <li><strong>Exclamation rhetorique :</strong> &laquo; Quelle pitie, quelle pauvrete ! &raquo; — exprime l'indignation et le mepris envers la these cartesienne.</li>
-                                <li><strong>Ironie :</strong> Voltaire feint de rapporter la these adverse avec objectivite mais la torpille par le ton scandalise.</li>
-                            </ul>
-                            <h4>Bon developpement</h4>
+                            <h4>Ce que la question demande</h4>
+                            <p>D'abord degager la these (= ce que l'auteur defend), puis analyser les procedes rhetoriques ou stylistiques qui servent cette these. La reponse doit <strong>nommer, citer et interpreter</strong> chaque procede.</p>
+
+                            <h4>Bonne reponse modele (sur un extrait de Voltaire)</h4>
                             <div class="model-text">
-                                Voltaire emploie ici une strategie argumentative redoutable. L'exclamation initiale &laquo; Quelle pitie, quelle pauvrete &raquo; installe d'emblee un ton de mepris ironique qui disqualifie la these cartesienne avant meme de la refuter rationnellement. L'accumulation &laquo; qui font toujours... qui n'apprennent rien, ne perfectionnent rien &raquo; constitue une enumeration volontairement caricaturale : en poussant la logique mecaniste a l'absurde, Voltaire la rend intenable. Le lecteur, entraine par le rythme ternaire et l'indignation partagee, ne peut que rejoindre le philosophe dans son rejet de l'animal-machine. Le texte argumentatif devient ainsi une arme polemique au service de la reconnaissance de la sensibilite animale.
+                                Dans cet extrait du Dictionnaire philosophique (doc. 3), Voltaire defend que la sensibilite animale est une evidence que les heritiers de Descartes refusent de reconnaitre, au mepris de toute observation empirique.
+
+Pour soutenir cette these, Voltaire recourt a plusieurs procedes efficaces. L'exclamation rhetorique &laquo; Quelle pitie, quelle pauvrete ! &raquo; installe d'emblee un ton d'indignation qui disqualifie l'adversaire avant meme l'argumentation. L'accumulation &laquo; qui font toujours leurs operations de la meme maniere, qui n'apprennent rien, ne perfectionnent rien &raquo; est une enumeration ironique : en poussant la logique mecaniste a l'absurde, Voltaire la rend intenable. Enfin, l'ironie parcourt tout le passage, Voltaire feignant de rapporter la these adverse avec objectivite avant de la torpiller par son ton scandalise.
+
+Ces procedes font de ce texte une arme polemique autant qu'un argument rationnel.
                             </div>
                         </div>
                     </div>
@@ -1904,25 +1950,60 @@ blockquote {
 
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        Exemple 3 : La Fontaine, &laquo; Le Loup et l'Agneau &raquo; (extrait)
+                        Question 3 (synthese) : &laquo; D'apres l'ensemble du corpus, pourquoi notre rapport a l'animal est-il en mutation ? &raquo;
                         <span class="chevron">&#9660;</span>
                     </button>
                     <div class="accordion-body">
                         <div class="accordion-body-inner">
-                            <blockquote>
-                                &laquo; La raison du plus fort est toujours la meilleure :<br>
-                                Nous l'allons montrer tout a l'heure. &raquo;
-                            </blockquote>
-                            <h4>Procedes reperes</h4>
-                            <ul>
-                                <li><strong>Ironie :</strong> La &laquo; raison &raquo; est ici celle de la force brute, pas de la logique — La Fontaine detourne le mot pour denoncer l'injustice.</li>
-                                <li><strong>Maxime / Sentence :</strong> le vers prend la forme d'une verite generale, mais c'est une verite amere et cynique.</li>
-                                <li><strong>Adresse au lecteur :</strong> &laquo; Nous l'allons montrer &raquo; — complice du fabuliste, le lecteur est invite a observer la demonstration.</li>
-                            </ul>
-                            <h4>Bon developpement</h4>
+                            <h4>Ce que la question demande</h4>
+                            <p>Une reponse organisee <strong>par idees</strong> (pas document par document) qui mobilise plusieurs documents pour degager les raisons d'une evolution. C'est le type de question le plus complet.</p>
+
+                            <h4>Bonne reponse modele</h4>
                             <div class="model-text">
-                                La Fontaine ouvre sa fable par une sentence cynique : &laquo; La raison du plus fort est toujours la meilleure. &raquo; Le mot &laquo; raison &raquo; est ici un oxymore conceptuel : il designe non pas la logique mais la loi du plus fort, c'est-a-dire l'absence meme de raison. Par cette ironie inaugurale, La Fontaine annonce que la fable ne sera pas un recit innocent mais une demonstration impitoyable de l'injustice sociale. Le loup et l'agneau incarnent une hierarchie ou la parole du faible — si juste soit-elle — est toujours ecrasee. L'animal n'est donc pas ici un pretexte decoratif : il est le revelateur le plus efficace de la violence des rapports humains.
+                                Notre rapport a l'animal est en profonde mutation, sous l'effet de trois facteurs que le corpus illustre.
+
+En premier lieu, la science a renverse la conception cartesienne de l'animal-machine. Darwin, puis les ethologues contemporains comme Frans de Waal (doc. 4), ont demontre que les animaux partagent avec l'homme des emotions, des capacites d'apprentissage et meme des comportements moraux. Cette revolution scientifique oblige a reconsiderer nos pratiques.
+
+Par ailleurs, la philosophie contemporaine a opere un deplacement ethique majeur. Peter Singer (doc. 5) soutient que la capacite a souffrir, et non l'appartenance a une espece, doit fonder nos obligations morales. L'antispécisme remet ainsi en cause des siecles de domination humaine justifiee par Descartes.
+
+Enfin, la litterature et les arts jouent un role sensibilisateur decisif. Que ce soit Zola montrant la souffrance partagee de l'homme et de l'animal dans la mine (doc. 2), ou les documentaires contemporains sur l'elevage intensif, les representations artistiques modifient le regard du public et nourrissent les debats societaux.
+
+Ces trois dimensions &mdash; scientifique, philosophique et culturelle &mdash; convergent pour remettre en question une relation fondee sur la domination.
                             </div>
+
+                            <div class="tip-box amber" style="margin-top:1rem;">
+                                <span class="tip-icon">&#9733;</span>
+                                <div><strong>Cle de reussite :</strong> La reponse est organisee par idees, pas par documents. On puise dans les documents comme appuis, on ne les resume pas les uns apres les autres.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                        Formules utiles pour introduire et relier les documents
+                        <span class="chevron">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        <div class="accordion-body-inner">
+                            <h4>Pour introduire la these d'un auteur</h4>
+                            <ul>
+                                <li>&laquo; Selon [auteur] (doc. X), &hellip; &raquo;</li>
+                                <li>&laquo; [Auteur] defend dans le document X l'idee que &hellip; &raquo;</li>
+                                <li>&laquo; Le document X montre clairement que &hellip; &raquo;</li>
+                            </ul>
+                            <h4>Pour confronter deux documents</h4>
+                            <ul>
+                                <li>&laquo; A l'inverse du document X, [auteur] soutient que &hellip; &raquo;</li>
+                                <li>&laquo; Si [auteur A] affirme que &hellip;, [auteur B] au contraire &hellip; &raquo;</li>
+                                <li>&laquo; Ces deux documents convergent sur &hellip; mais divergent quant a &hellip; &raquo;</li>
+                            </ul>
+                            <h4>Pour nuancer et conclure</h4>
+                            <ul>
+                                <li>&laquo; Toutefois, il convient de nuancer : [auteur] (doc. X) rappelle que &hellip; &raquo;</li>
+                                <li>&laquo; En definitive, le corpus montre que &hellip; &raquo;</li>
+                                <li>&laquo; Au-dela de cette opposition, tous les auteurs s'accordent sur &hellip; &raquo;</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1950,52 +2031,60 @@ blockquote {
                 <button class="random-btn" style="margin-top:1rem;background:var(--amber-600);" onclick="initQuiz('comm')">Recommencer</button>
             </div>
 
-            <h2 class="section-title">Mini-exercice : retrouvez le procede</h2>
+            <h2 class="section-title">Mini-exercice : identifiez le type de question</h2>
+            <p style="color:var(--ink-2);margin-bottom:1rem;font-size:0.92rem;">Lisez chaque question et identifiez ce qu'elle demande, puis verifiez la correction.</p>
             <div class="accordion">
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        &laquo; Il rugissait comme un roi dechu, echoue dans une cage de fer. &raquo;
+                        &laquo; En vous appuyant sur les documents 1 et 3, expliquez comment la representation de l'animal a evolue entre le XVIIe et le XXe siecle. &raquo;
                         <span class="chevron">&#9660;</span>
                     </button>
                     <div class="accordion-body">
                         <div class="accordion-body-inner">
-                            <p><strong>Procedes :</strong></p>
+                            <p><strong>Type de question :</strong> <em>Comparaison + evolution historique</em></p>
+                            <p><strong>Strategie de reponse :</strong></p>
                             <ul>
-                                <li><strong>Comparaison</strong> : &laquo; comme un roi dechu &raquo; — rapproche le lion d'une figure royale, soulignant sa noblesse perdue.</li>
-                                <li><strong>Antithese</strong> : &laquo; roi &raquo; vs &laquo; cage &raquo; — oppose la grandeur originelle a la captivite.</li>
-                                <li><strong>Champ lexical de la decheance</strong> : &laquo; dechu &raquo;, &laquo; echoue &raquo;, &laquo; cage &raquo; — insiste sur la perte de liberte.</li>
+                                <li>Presenter d'abord la conception du doc. 1 (ex. : Descartes, XVIIe siecle, animal-machine)</li>
+                                <li>Presenter ensuite celle du doc. 3 (ex. : ethologie contemporaine, animal sensible)</li>
+                                <li>Conclure sur <strong>l'evolution</strong> : passage d'une vision mecaniste a une reconnaissance de la sensibilite</li>
+                                <li>Structure suggeree : D'abord&hellip; / Cependant, au XXe siecle&hellip; / Ainsi&hellip;</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        &laquo; Les betes ne parlent pas, dit-on. Quel admirable silence que celui qui dit tout. &raquo;
+                        &laquo; Que signifie l'expression &laquo; l'animal-machine &raquo; dans le document 1 ? Pourquoi cette conception a-t-elle ete contestee ? &raquo;
                         <span class="chevron">&#9660;</span>
                     </button>
                     <div class="accordion-body">
                         <div class="accordion-body-inner">
-                            <p><strong>Procedes :</strong></p>
+                            <p><strong>Type de question :</strong> <em>Explication d'un extrait precis + ouverture critique</em></p>
+                            <p><strong>Strategie de reponse :</strong></p>
                             <ul>
-                                <li><strong>Paradoxe / Oxymore conceptuel</strong> : &laquo; silence qui dit tout &raquo; — le silence animal est plus eloquent que la parole humaine.</li>
-                                <li><strong>Ironie</strong> : &laquo; dit-on &raquo; — distance critique avec l'opinion commune.</li>
-                                <li><strong>Antithese</strong> : &laquo; ne parlent pas &raquo; vs &laquo; dit tout &raquo; — renverse le prejuge de l'animal muet.</li>
+                                <li>Premiere partie : expliquer ce que Descartes entend par &laquo; machine &raquo; (absence d'ame, de raison, de sensibilite)</li>
+                                <li>Deuxieme partie : montrer en quoi d'autres auteurs (Voltaire, Darwin, etc.) ont conteste cette conception</li>
+                                <li>Citez le document 1 precisement, puis un ou deux autres documents pour la contestation</li>
+                                <li>Ne pas donner votre avis personnel sans appui sur le corpus</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleAccordion(this)">
-                        &laquo; L'oiseau chante, le loup hurle, le chien gemit : toute la creation s'exprime, sauf l'homme qui se bouche les oreilles. &raquo;
+                        &laquo; D'apres l'ensemble du corpus, quels arguments plaident en faveur d'une meilleure protection des animaux ? &raquo;
                         <span class="chevron">&#9660;</span>
                     </button>
                     <div class="accordion-body">
                         <div class="accordion-body-inner">
-                            <p><strong>Procedes :</strong></p>
+                            <p><strong>Type de question :</strong> <em>Synthese partielle sur l'ensemble du corpus</em></p>
+                            <p><strong>Strategie de reponse :</strong></p>
                             <ul>
-                                <li><strong>Enumeration / Gradation</strong> : &laquo; chante, hurle, gemit &raquo; — progression dans l'intensite emotionnelle du cri animal.</li>
-                                <li><strong>Antithese finale</strong> : &laquo; toute la creation s'exprime, sauf l'homme &raquo; — renversement inattendu : c'est l'homme qui est sourd, pas l'animal qui est muet.</li>
-                                <li><strong>Hyperbole</strong> : &laquo; toute la creation &raquo; — generalise pour amplifier le propos.</li>
+                                <li>Organiser par <strong>idees</strong>, pas par documents : regroupez les arguments thematiquement</li>
+                                <li>Idee 1 : la capacite a souffrir (Voltaire, Singer) → argument moral</li>
+                                <li>Idee 2 : l'intelligence et les emotions animales (Darwin, de Waal) → argument scientifique</li>
+                                <li>Idee 3 : les representations artistiques et litteraires changent les mentalites → argument culturel</li>
+                                <li>Chaque idee doit etre appuyee par au moins un document cite</li>
                             </ul>
                         </div>
                     </div>
@@ -2172,58 +2261,52 @@ const quizDataExpr = [
 
 const quizDataComm = [
     {
-        q: "Dans 'Ce prince des nuees', quel procede Baudelaire utilise-t-il ?",
-        opts: ["Une comparaison", "Une metaphore", "Une hyperbole"],
+        q: "Que faut-il faire AVANT de lire les documents d'un corpus ?",
+        opts: ["Lire tous les documents rapidement", "Lire toutes les questions", "Chercher les auteurs dans ses souvenirs"],
         answer: 1,
-        explain: "C'est une metaphore : l'albatros est directement designe comme 'prince' sans outil de comparaison (pas de 'comme'). L'image eleve l'oiseau au rang royal."
+        explain: "Lire les questions en premier permet d'orienter votre lecture et de reperer des le premier passage les informations pertinentes pour chaque reponse."
     },
     {
-        q: "Qu'est-ce que la paraphrase, et pourquoi faut-il l'eviter ?",
-        opts: [
-            "C'est reformuler le texte sans l'analyser — cela ne montre aucune competence d'interpretation",
-            "C'est citer trop de passages du texte — cela allonge inutilement la copie",
-            "C'est donner son opinion personnelle — c'est hors-sujet"
-        ],
-        answer: 0,
-        explain: "La paraphrase consiste a redire ce que dit le texte avec d'autres mots, sans identifier de procedes ni proposer d'interpretation. C'est l'erreur la plus frequente et la plus penalisee."
+        q: "Qu'est-ce qu'une 'these' dans un document ?",
+        opts: ["Le titre du document", "L'idee principale que l'auteur defend dans le texte", "Le resume de toutes les idees du texte"],
+        answer: 1,
+        explain: "La these est la position centrale que l'auteur defend. L'identifier est la premiere etape de toute analyse : elle oriente la comprehension de tous les arguments du texte."
     },
     {
-        q: "Quel est l'ordre correct pour analyser un procede ?",
-        opts: [
-            "Interpretation → Citation → Nom du procede",
-            "Citation → Nom du procede → Effet / Interpretation",
-            "Nom du procede → Effet → Citation"
-        ],
+        q: "Que demande une question de 'comparaison' dans un corpus ?",
+        opts: ["Resumer chaque document l'un apres l'autre", "Confronter les points de vue, trouver convergences et divergences", "Choisir le document que l'on prefere et le defendre"],
         answer: 1,
-        explain: "La methode la plus efficace : citer d'abord, nommer le procede, puis expliquer l'effet produit. C'est la structure Citation → Procede → Interpretation."
+        explain: "Une question de comparaison demande de confronter activement les documents : identifier ce qu'ils partagent et ce en quoi ils divergent. On ne les resume pas separement."
     },
     {
-        q: "'Quelle pitie, quelle pauvrete !' chez Voltaire est un exemple de...",
-        opts: ["Euphemisme", "Exclamation rhetorique exprimant l'indignation", "Gradation ascendante"],
+        q: "Comment doit-on citer un document dans une reponse ?",
+        opts: ["En le paraphrasant toujours pour eviter les guillemets", "En indiquant l'auteur et le numero du document, avec citation entre guillemets", "En ecrivant simplement 'le texte dit que...'"],
         answer: 1,
-        explain: "L'exclamation rhetorique traduit l'indignation de Voltaire face a la these cartesienne. Le ton scandalise disqualifie l'adversaire avant meme l'argumentation rationnelle."
+        explain: "Toute citation doit etre entre guillemets, avec indication de l'auteur et du document. Cela montre que vous vous appuyez precisement sur le corpus."
     },
     {
-        q: "Quand La Fontaine ecrit 'La raison du plus fort est toujours la meilleure', le mot 'raison' est...",
-        opts: ["Utilise au sens propre (logique, bon sens)", "Ironique : il designe en realite la force brute", "Un euphemisme pour la violence"],
+        q: "Quelle est la principale erreur dans une reponse a une question sur corpus ?",
+        opts: ["Citer trop souvent les documents", "Resumer les documents sans repondre a la question precise", "Utiliser des connecteurs logiques"],
         answer: 1,
-        explain: "Le mot 'raison' est detourne ironiquement. La Fontaine oppose le sens noble du mot (logique) a la realite qu'il designe ici : la loi du plus fort, c'est-a-dire l'absence de raison."
+        explain: "La paraphrase ou le resume sans reponse ciblee est l'erreur la plus frequente. Le correcteur sait ce que les documents disent ; il evalue votre capacite a analyser et argumenter."
     },
     {
-        q: "'L'animal observe, comprend, ressent, souffre' est un exemple de...",
-        opts: ["Anaphore", "Gradation ascendante", "Personnification"],
+        q: "Pour une question de synthese partielle, comment doit-on organiser sa reponse ?",
+        opts: ["Document par document (doc. 1, puis doc. 2, puis doc. 3...)", "Par idees directrices, en mobilisant les documents comme appuis", "En donnant d'abord son opinion puis en citant les documents"],
         answer: 1,
-        explain: "Les verbes sont places dans un ordre d'intensite croissante (observer → comprendre → ressentir → souffrir). C'est une gradation qui conduit le lecteur vers la reconnaissance de la sensibilite animale."
+        explain: "Une reponse de synthese s'organise par idees, pas par documents. On regroupe les apports des differents auteurs autour de grandes orientations thematiques."
     },
     {
-        q: "Que doit obligatoirement contenir l'introduction d'un commentaire ?",
-        opts: [
-            "Un resume complet du texte et une opinion personnelle",
-            "La presentation de l'auteur/texte, le theme, et l'annonce des axes d'analyse",
-            "Une citation celebre et un rappel du cours"
-        ],
+        q: "Pour une question a 4 points, quelle longueur de reponse est la plus adaptee ?",
+        opts: ["2-3 lignes, il faut etre bref", "15-20 lignes, avec argumentation developpee et citations", "Une page entiere pour maximiser les chances"],
         answer: 1,
-        explain: "L'introduction situe le texte (auteur, oeuvre, contexte), identifie le theme et annonce les axes du commentaire. Pas de resume ni d'opinion personnelle."
+        explain: "La longueur doit etre proportionnelle au bareme. Une question a 4 points merite une reponse developpee (15-20 lignes), bien structuree et appuyee sur le corpus."
+    },
+    {
+        q: "Peut-on donner son opinion personnelle dans une reponse aux questions sur corpus ?",
+        opts: ["Oui, le correcteur veut savoir ce que vous pensez", "Non, sauf si la question le demande explicitement et en s'appuyant sur le corpus", "Oui, a condition de commencer par 'Je pense que'"],
+        answer: 1,
+        explain: "Dans les questions sur corpus, on reste ancre dans les documents. Une prise de position personnelle n'est acceptee que si la question l'invite explicitement, et elle doit toujours etre etayee par des references au corpus."
     }
 ];
 
